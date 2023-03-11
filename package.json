@@ -1,0 +1,97 @@
+{
+  "name": "tdx-indicator-formula",
+  "displayName": "通达信指标公式",
+  "description": "通达信指标公式插件,可以更高效的在vscode中编辑心仪指标",
+  "keywords": [
+    "tdx",
+    "通达信",
+    "指标公式",
+    "量化交易",
+    "股票"
+  ],
+  "version": "0.0.1",
+  "publisher": "QuietlyChan",
+  "engines": {
+    "vscode": "^1.76.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Formatters"
+  ],
+  "icon": "https://cdn.puritychan.cn/vscode-plugin/tdx-indicator-formula/icon.png",
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "configurationDefaults": {
+      "[tdx]": {
+        "editor.maxTokenizationLineLength": 10000
+      }
+    },
+    "configuration": {
+      "type": "object",
+      "title": "通达信指标公式插件",
+      "properties": {
+        "tdx-indicator-formula.name": {
+          "type": "string",
+          "default": "guest",
+          "description": "你的名字"
+        },
+        "tdx-indicator-formula.showTip": {
+          "type": "boolean",
+          "default": true,
+          "description": "是否在每次启动时显示欢迎提示！"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "tdx-indicator-formula.helloWorld",
+        "title": "Hello World"
+      }
+    ],
+    "languages": [
+      {
+        "id": "tdx",
+        "extensions": [
+          ".tdx",
+          ".txt"
+        ],
+        "aliases": [
+          "tdx",
+          "txt",
+          "通达信"
+        ],
+        "filenames": [],
+        "firstLine": "^#!/.*\\bpython[0-9.-]*\\b",
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./image/tdx-light.png",
+          "dark": "./image/tdx-light.png"
+        }
+      }
+    ],
+    "snippets": [
+      {
+        "language": "tdx",
+        "path": "./snippets/tdx.json"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "node ./test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.76.0",
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "16.x",
+    "eslint": "^8.34.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^4.9.5",
+    "@vscode/test-electron": "^2.2.3"
+  }
+}
