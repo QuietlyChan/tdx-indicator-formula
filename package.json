@@ -21,7 +21,7 @@
   ],
   "icon": "https://cdn.puritychan.cn/vscode-plugin/tdx-indicator-formula/icon.png",
   "activationEvents": [],
-  "main": "./extension.js",
+  "main": "./client/out/extension",
   "contributes": {
     "configurationDefaults": {
       "[tdx]": {
@@ -41,6 +41,23 @@
           "type": "boolean",
           "default": true,
           "description": "是否在每次启动时显示欢迎提示！"
+        },
+        "languageServerExample.maxNumberOfProblems": {
+          "scope": "resource",
+          "type": "number",
+          "default": 100,
+          "description": "控制服务器产生的最大问题数。"
+        },
+        "languageServerExample.trace.server": {
+          "scope": "window",
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "跟踪vscode和语言服务器之间的通信。"
         }
       }
     },
@@ -79,15 +96,21 @@
     ]
   },
   "scripts": {
-    "lint": "eslint .",
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -b",
+    "watch": "tsc -b -w",
+    "lint": "eslint ./client/src ./server/src --ext .ts,.tsx",
+    "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
     "pretest": "npm run lint",
-    "test": "node ./test/runTest.js"
+    "test": "sh ./scripts/e2e.sh"
   },
   "devDependencies": {
     "@types/vscode": "^1.76.0",
     "@types/glob": "^8.1.0",
     "@types/mocha": "^10.0.1",
-    "@types/node": "16.x",
+    "@types/node": "^16.11.7",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
     "eslint": "^8.34.0",
     "glob": "^8.1.0",
     "mocha": "^10.2.0",
