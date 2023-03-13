@@ -1,0 +1,16 @@
+{
+  "tokenColors": [
+    {
+      "scope": "tdx",
+      "settings": {
+        "foreground": "#00FF00"
+      }
+    },
+    {
+      "scope": "keyword.control.tdx",
+      "settings": {
+        "foreground": "#FF0000"
+      }
+    }
+  ]
+}
