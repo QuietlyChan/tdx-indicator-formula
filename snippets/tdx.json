@@ -3,51 +3,5 @@
     "prefix": "co",
     "body": ["console.log('$1');"],
     "description": "输出console"
-  },
-  "vue2 less 模板": {
-    "prefix": "vue2less",
-    "body": [
-      "<!--$1-->",
-      "<template>",
-      "    <div>",
-      "      ",
-      "    </div>",
-      "</template>",
-      "<script>",
-      "export default {",
-      "    data() {",
-      "        return{}",
-      "    },",
-      "    methods:{}",
-      "}",
-      "</script>",
-      "<style lang='less' scoped>",
-      "",
-      "</style>"
-    ],
-    "description": "vue2 less 模板"
-  },
-  "vue2 scss 模板": {
-    "prefix": "vue2scss",
-    "body": [
-      "<!--$1-->",
-      "<template>",
-      "    <div>",
-      "      ",
-      "    </div>",
-      "</template>",
-      "<script>",
-      "export default {",
-      "    data() {",
-      "      return{}",
-      "    },",
-      "    methods:{}",
-      "}",
-      "</script>",
-      "<style lang='scss' scoped>",
-      "",
-      "</style>"
-    ],
-    "description": "vue2 scss 模板"
   }
 }

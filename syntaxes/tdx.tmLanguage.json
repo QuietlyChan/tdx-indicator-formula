@@ -1,0 +1,33 @@
+{
+  "name": "tdx",
+  "scopeName": "source.tdx",
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#strings"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.tdx",
+          "match": "STR"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.tdx",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.tdx",
+          "match": "\\\\."
+        }
+      ]
+    }
+  }
+}

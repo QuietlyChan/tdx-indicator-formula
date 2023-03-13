@@ -2,24 +2,32 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  * ------------------------------------------------------------------------------------------ */
+import keywords from "./complete/keyword";
 import {
-	createConnection,
-	TextDocuments,
-	Diagnostic,
-	DiagnosticSeverity,
-	ProposedFeatures,
-	InitializeParams,
-	DidChangeConfigurationNotification,
-	CompletionItem,
-	CompletionItemKind,
-	TextDocumentPositionParams,
-	TextDocumentSyncKind,
-	InitializeResult
-} from 'vscode-languageserver/node';
+  createConnection,
+  TextDocuments,
+  Diagnostic,
+  DiagnosticSeverity,
+  ProposedFeatures,
+  InitializeParams,
+  DidChangeConfigurationNotification,
+  CompletionItem,
+  CompletionItemKind,
+  TextDocumentPositionParams,
+  TextDocumentSyncKind,
+  InitializeResult,
+  HoverParams,
+  Hover,
+  SignatureHelpParams,
+  SignatureHelp,
+  DocumentFormattingParams,
+  TextEdit,
+  DocumentHighlightParams,
+  DocumentHighlight,
+  DocumentHighlightKind,
+} from "vscode-languageserver/node";
 
-import {
-	TextDocument
-} from 'vscode-languageserver-textdocument';
+import { TextDocument } from "vscode-languageserver-textdocument";
 
 // Create a connection for the server, using Node's IPC as a transport.
 // Also include all preview / proposed LSP features.
@@ -33,56 +41,72 @@ let hasWorkspaceFolderCapability = false;
 let hasDiagnosticRelatedInformationCapability = false;
 
 connection.onInitialize((params: InitializeParams) => {
-	const capabilities = params.capabilities;
+  const capabilities = params.capabilities;
 
-	// Does the client support the `workspace/configuration` request?
-	// If not, we fall back using global settings.
-	hasConfigurationCapability = !!(
-		capabilities.workspace && !!capabilities.workspace.configuration
-	);
-	hasWorkspaceFolderCapability = !!(
-		capabilities.workspace && !!capabilities.workspace.workspaceFolders
-	);
-	hasDiagnosticRelatedInformationCapability = !!(
-		capabilities.textDocument &&
-		capabilities.textDocument.publishDiagnostics &&
-		capabilities.textDocument.publishDiagnostics.relatedInformation
-	);
+  // Does the client support the `workspace/configuration` request?
+  // If not, we fall back using global settings.
+  hasConfigurationCapability = !!(
+    capabilities.workspace && !!capabilities.workspace.configuration
+  );
+  hasWorkspaceFolderCapability = !!(
+    capabilities.workspace && !!capabilities.workspace.workspaceFolders
+  );
+  hasDiagnosticRelatedInformationCapability = !!(
+    capabilities.textDocument &&
+    capabilities.textDocument.publishDiagnostics &&
+    capabilities.textDocument.publishDiagnostics.relatedInformation
+  );
 
-	const result: InitializeResult = {
-		capabilities: {
-			textDocumentSync: TextDocumentSyncKind.Incremental,
-			// Tell the client that this server supports code completion.
-			completionProvider: {
-				resolveProvider: true
-			}
-		}
-	};
-	if (hasWorkspaceFolderCapability) {
-		result.capabilities.workspace = {
-			workspaceFolders: {
-				supported: true
-			}
-		};
-	}
-	return result;
+  // 明确声明插件支持的语言特性
+  const result: InitializeResult = {
+    capabilities: {
+      // 增量处理
+      textDocumentSync: TextDocumentSyncKind.Incremental,
+      // Tell the client that this server supports code completion.
+      // 代码补全
+      completionProvider: {
+        resolveProvider: true,
+      },
+      // hover 提示
+      hoverProvider: true,
+      // 签名提示
+      signatureHelpProvider: {
+        triggerCharacters: ["("],
+      },
+      // 格式化
+      documentFormattingProvider: true,
+      // 语言高亮
+      documentHighlightProvider: true,
+    },
+  };
+  if (hasWorkspaceFolderCapability) {
+    result.capabilities.workspace = {
+      workspaceFolders: {
+        supported: true,
+      },
+    };
+  }
+  return result;
 });
 
 connection.onInitialized(() => {
-	if (hasConfigurationCapability) {
-		// Register for all configuration changes.
-		connection.client.register(DidChangeConfigurationNotification.type, undefined);
-	}
-	if (hasWorkspaceFolderCapability) {
-		connection.workspace.onDidChangeWorkspaceFolders(_event => {
-			connection.console.log('Workspace folder change event received.');
-		});
-	}
+  if (hasConfigurationCapability) {
+    // Register for all configuration changes.
+    connection.client.register(
+      DidChangeConfigurationNotification.type,
+      undefined
+    );
+  }
+  if (hasWorkspaceFolderCapability) {
+    connection.workspace.onDidChangeWorkspaceFolders((_event) => {
+      connection.console.log("Workspace folder change event received.");
+    });
+  }
 });
 
 // The example settings
 interface ExampleSettings {
-	maxNumberOfProblems: number;
+  maxNumberOfProblems: number;
 }
 
 // The global settings, used when the `workspace/configuration` request is not supported by the client.
@@ -94,133 +118,191 @@ let globalSettings: ExampleSettings = defaultSettings;
 // Cache the settings of all open documents
 const documentSettings: Map<string, Thenable<ExampleSettings>> = new Map();
 
-connection.onDidChangeConfiguration(change => {
-	if (hasConfigurationCapability) {
-		// Reset all cached document settings
-		documentSettings.clear();
-	} else {
-		globalSettings = <ExampleSettings>(
-			(change.settings.languageServerExample || defaultSettings)
-		);
-	}
+connection.onDidChangeConfiguration((change) => {
+  if (hasConfigurationCapability) {
+    // Reset all cached document settings
+    documentSettings.clear();
+  } else {
+    globalSettings = <ExampleSettings>(
+      (change.settings.languageServerExample || defaultSettings)
+    );
+  }
 
-	// Revalidate all open text documents
-	documents.all().forEach(validateTextDocument);
+  // Revalidate all open text documents
+  documents.all().forEach(validateTextDocument);
 });
 
 function getDocumentSettings(resource: string): Thenable<ExampleSettings> {
-	if (!hasConfigurationCapability) {
-		return Promise.resolve(globalSettings);
-	}
-	let result = documentSettings.get(resource);
-	if (!result) {
-		result = connection.workspace.getConfiguration({
-			scopeUri: resource,
-			section: 'languageServerExample'
-		});
-		documentSettings.set(resource, result);
-	}
-	return result;
+  if (!hasConfigurationCapability) {
+    return Promise.resolve(globalSettings);
+  }
+  let result = documentSettings.get(resource);
+  if (!result) {
+    result = connection.workspace.getConfiguration({
+      scopeUri: resource,
+      section: "languageServerExample",
+    });
+    documentSettings.set(resource, result);
+  }
+  return result;
 }
 
 // Only keep settings for open documents
-documents.onDidClose(e => {
-	documentSettings.delete(e.document.uri);
+documents.onDidClose((e) => {
+  documentSettings.delete(e.document.uri);
 });
 
 // The content of a text document has changed. This event is emitted
 // when the text document first opened or when its content has changed.
-documents.onDidChangeContent(change => {
-	validateTextDocument(change.document);
+documents.onDidChangeContent((change) => {
+  validateTextDocument(change.document);
 });
 
 async function validateTextDocument(textDocument: TextDocument): Promise<void> {
-	// In this simple example we get the settings for every validate run.
-	const settings = await getDocumentSettings(textDocument.uri);
+  // In this simple example we get the settings for every validate run.
+  const settings = await getDocumentSettings(textDocument.uri);
 
-	// The validator creates diagnostics for all uppercase words length 2 and more
-	const text = textDocument.getText();
-	const pattern = /\b[A-Z]{2,}\b/g;
-	let m: RegExpExecArray | null;
+  // The validator creates diagnostics for all uppercase words length 2 and more
+  const text = textDocument.getText();
+  const pattern = /\b[A-Z]{2,}\b/g;
+  let m: RegExpExecArray | null;
 
-	let problems = 0;
-	const diagnostics: Diagnostic[] = [];
-	while ((m = pattern.exec(text)) && problems < settings.maxNumberOfProblems) {
-		problems++;
-		const diagnostic: Diagnostic = {
-			severity: DiagnosticSeverity.Warning,
-			range: {
-				start: textDocument.positionAt(m.index),
-				end: textDocument.positionAt(m.index + m[0].length)
-			},
-			message: `${m[0]} is all uppercase.`,
-			source: 'ex'
-		};
-		if (hasDiagnosticRelatedInformationCapability) {
-			diagnostic.relatedInformation = [
-				{
-					location: {
-						uri: textDocument.uri,
-						range: Object.assign({}, diagnostic.range)
-					},
-					message: 'Spelling matters'
-				},
-				{
-					location: {
-						uri: textDocument.uri,
-						range: Object.assign({}, diagnostic.range)
-					},
-					message: 'Particularly for names'
-				}
-			];
-		}
-		diagnostics.push(diagnostic);
-	}
+  let problems = 0;
+  const diagnostics: Diagnostic[] = [];
+  while ((m = pattern.exec(text)) && problems < settings.maxNumberOfProblems) {
+    problems++;
+    const diagnostic: Diagnostic = {
+      severity: DiagnosticSeverity.Warning,
+      range: {
+        start: textDocument.positionAt(m.index),
+        end: textDocument.positionAt(m.index + m[0].length),
+      },
+      message: `${m[0]} is all uppercase.`,
+      source: "ex",
+    };
+    if (hasDiagnosticRelatedInformationCapability) {
+      diagnostic.relatedInformation = [
+        {
+          location: {
+            uri: textDocument.uri,
+            range: Object.assign({}, diagnostic.range),
+          },
+          message: "Spelling matters",
+        },
+        {
+          location: {
+            uri: textDocument.uri,
+            range: Object.assign({}, diagnostic.range),
+          },
+          message: "Particularly for names",
+        },
+      ];
+    }
+    diagnostics.push(diagnostic);
+  }
 
-	// Send the computed diagnostics to VSCode.
-	connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
+  // Send the computed diagnostics to VSCode.
+  connection.sendDiagnostics({ uri: textDocument.uri, diagnostics });
 }
 
-connection.onDidChangeWatchedFiles(_change => {
-	// Monitored files have change in VSCode
-	connection.console.log('We received an file change event');
+connection.onDidChangeWatchedFiles((_change) => {
+  // Monitored files have change in VSCode
+  connection.console.log("We received an file change event");
 });
+
+connection.onHover((params: HoverParams): Promise<Hover> => {
+  return Promise.resolve({
+    contents: ["Hover Demo"],
+  });
+});
+
+connection.onDocumentFormatting(
+  (params: DocumentFormattingParams): Promise<TextEdit[]> => {
+    const { textDocument } = params;
+    const doc = documents.get(textDocument.uri)!;
+    const text = doc.getText();
+    const pattern = /\b[A-Z]{3,}\b/g;
+    let match;
+    const res = [];
+    while ((match = pattern.exec(text))) {
+      res.push({
+        range: {
+          start: doc.positionAt(match.index),
+          end: doc.positionAt(match.index + match[0].length),
+        },
+        newText: match[0].replace(/(?<=[A-Z])[A-Z]+/, (r) => r.toLowerCase()),
+      });
+    }
+
+    return Promise.resolve(res);
+  }
+);
+
+connection.onDocumentHighlight(
+  (params: DocumentHighlightParams): Promise<DocumentHighlight[]> => {
+    const { textDocument } = params;
+    const doc = documents.get(textDocument.uri)!;
+    const text = doc.getText();
+    const pattern = /\btdx\b/i;
+    const res: DocumentHighlight[] = [];
+    let match;
+    while ((match = pattern.exec(text))) {
+      res.push({
+        range: {
+          start: doc.positionAt(match.index),
+          end: doc.positionAt(match.index + match[0].length),
+        },
+        // kind: DocumentHighlightKind.Write,
+        kind: SymbolKind.Function,
+      });
+    }
+    return Promise.resolve(res);
+  }
+);
+
+// connection.onSignatureHelp(
+//   (params: SignatureHelpParams): Promise<SignatureHelp> => {
+//     return Promise.resolve({
+//       signatures: [
+//         {
+//           label: "Signature Demo",
+//           documentation: "human readable content",
+//           parameters: [
+//             {
+//               label: "@p1 first param",
+//               documentation: "content for first param",
+//             },
+//           ],
+//         },
+//       ],
+//       activeSignature: 0,
+//       activeParameter: 0,
+//     });
+//   }
+// );
 
 // This handler provides the initial list of the completion items.
 connection.onCompletion(
-	(_textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
-		// The pass parameter contains the position of the text document in
-		// which code complete got requested. For the example we ignore this
-		// info and always provide the same completion items.
-		return [
-			{
-				label: 'TypeScript',
-				kind: CompletionItemKind.Text,
-				data: 1
-			},
-			{
-				label: 'JavaScript',
-				kind: CompletionItemKind.Text,
-				data: 2
-			}
-		];
-	}
+  (_textDocumentPosition: TextDocumentPositionParams): CompletionItem[] => {
+    // The pass parameter contains the position of the text document in
+    // which code complete got requested. For the example we ignore this
+    // info and always provide the same completion items.
+    return keywords;
+  }
 );
 
 // This handler resolves additional information for the item selected in
 // the completion list.
-connection.onCompletionResolve(
-	(item: CompletionItem): CompletionItem => {
-		if (item.data === 1) {
-			item.detail = 'TypeScript details';
-			item.documentation = 'TypeScript documentation';
-		} else if (item.data === 2) {
-			item.detail = 'JavaScript details';
-			item.documentation = 'JavaScript documentation';
-		}
-		return item;
-	}
-);
+connection.onCompletionResolve((item: CompletionItem): CompletionItem => {
+  // if (item.data === 1) {
+  // 	item.detail = 'TypeScript details';
+  // 	item.documentation = 'TypeScript documentation';
+  // } else if (item.data === 2) {
+  // 	item.detail = 'JavaScript details';
+  // 	item.documentation = 'JavaScript documentation';
+  // }
+  return item;
+});
 
 // Make the text document manager listen on the connection
 // for open, change and close text document events
