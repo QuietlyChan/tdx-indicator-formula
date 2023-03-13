@@ -1,6 +1,6 @@
 # tdx-indicator-formula README
 
-This is the README for your extension "tdx-indicator-formula". After writing up a brief description, we recommend including the following sections.
+"tdx-indicator-formula". After writing up a brief description, we recommend including the following sections.
 
 ## Features
 

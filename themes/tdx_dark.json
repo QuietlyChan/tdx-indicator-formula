@@ -1,22 +1,12 @@
 {
-	"tokenColors": [
-		{
-			"scope": "tdx",
-			"settings": {
-				"foreground": "#eee"
-			}
-		},
-		{
-			"scope": "keyword.control.tdx",
-			"settings": {
-				"foreground": "#F44747"
-			}
-		},
-		{
-			"scope": "tdx.lng.name",
-			"settings": {
-				"foreground": "#007acc"
-			}
-		}
-	],
+  "tokenColors": [
+    {
+      "name":"keyword.control.tdx",
+      "scope": "keyword.control.tdx",
+      "settings": {
+        "fontStyle": "italic",
+        "foreground": "#637777"
+      }
+    }
+  ]
 }

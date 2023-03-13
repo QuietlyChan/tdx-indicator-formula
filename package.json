@@ -2,6 +2,10 @@
   "name": "tdx-indicator-formula",
   "displayName": "通达信指标公式",
   "description": "通达信指标公式插件,可以更高效的在vscode中编辑心仪指标",
+  "repository": {
+    "type": "git",
+    "url": "https://gitee.com/PurityChan/tdx-indicator-formula.git"
+  },
   "keywords": [
     "tdx",
     "通达信",
@@ -19,7 +23,7 @@
     "Snippets",
     "Formatters"
   ],
-  "icon": "https://cdn.puritychan.cn/vscode-plugin/tdx-indicator-formula/icon.png",
+  "icon": "icon.png",
   "activationEvents": [],
   "main": "./client/out/extension",
   "contributes": {
@@ -67,6 +71,13 @@
         "title": "Hello World"
       }
     ],
+    "grammars": [
+      {
+        "language": "tdx",
+        "scopeName": "source.tdx",
+        "path": "./syntaxes/tdx.tmLanguage.json"
+      }
+    ],
     "languages": [
       {
         "id": "tdx",
@@ -79,13 +90,6 @@
           "txt",
           "通达信"
         ],
-        "grammars": [
-          {
-            "language": "tdx",
-            "scopeName": "source.tdx",
-            "path": "./syntaxes/tdx.tmLanguage.json"
-          }
-        ],
         "filenames": [],
         "firstLine": "^#!/.*\\bpython[0-9.-]*\\b",
         "configuration": "./language-configuration.json",
@@ -97,8 +101,23 @@
     ],
     "themes": [
       {
-        "label": "tdx-dark",
+        "label": "tdx-vs",
+        "uiTheme": "vs",
+        "path": "./themes/tdx-dark.json"
+      },
+      {
+        "label": "tdx-vs-dark",
         "uiTheme": "vs-dark",
+        "path": "./themes/tdx-dark.json"
+      },
+      {
+        "label": "tdx-hc-black",
+        "uiTheme": "hc-black",
+        "path": "./themes/tdx-dark.json"
+      },
+      {
+        "label": "tdx-hc-light",
+        "uiTheme": "hc-light",
         "path": "./themes/tdx-dark.json"
       }
     ],
@@ -111,6 +130,7 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
+    "pack": "vsce package",
     "compile": "tsc -b",
     "watch": "tsc -b -w",
     "lint": "eslint ./client/src ./server/src --ext .ts,.tsx",

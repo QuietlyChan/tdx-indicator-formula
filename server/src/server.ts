@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  * ------------------------------------------------------------------------------------------ */
-import keywords from "./complete/keyword";
+import { keywords } from "./complete/keyword";
 import {
   createConnection,
   TextDocuments,
@@ -70,13 +70,13 @@ connection.onInitialize((params: InitializeParams) => {
       // hover 提示
       hoverProvider: true,
       // 签名提示
-      signatureHelpProvider: {
-        triggerCharacters: ["("],
-      },
+      // signatureHelpProvider: {
+      //   triggerCharacters: ["("],
+      // },
       // 格式化
       documentFormattingProvider: true,
       // 语言高亮
-      documentHighlightProvider: true,
+      // documentHighlightProvider: true,
     },
   };
   if (hasWorkspaceFolderCapability) {
@@ -164,7 +164,8 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 
   // The validator creates diagnostics for all uppercase words length 2 and more
   const text = textDocument.getText();
-  const pattern = /\b[A-Z]{2,}\b/g;
+  const pattern =  /^(\d{18}|\d{15}|\d{17}x)$/g;
+  // const pattern = /\b[A-Z]{2,}\b/g;
   let m: RegExpExecArray | null;
 
   let problems = 0;
@@ -238,27 +239,26 @@ connection.onDocumentFormatting(
   }
 );
 
-connection.onDocumentHighlight(
-  (params: DocumentHighlightParams): Promise<DocumentHighlight[]> => {
-    const { textDocument } = params;
-    const doc = documents.get(textDocument.uri)!;
-    const text = doc.getText();
-    const pattern = /\btdx\b/i;
-    const res: DocumentHighlight[] = [];
-    let match;
-    while ((match = pattern.exec(text))) {
-      res.push({
-        range: {
-          start: doc.positionAt(match.index),
-          end: doc.positionAt(match.index + match[0].length),
-        },
-        // kind: DocumentHighlightKind.Write,
-        kind: SymbolKind.Function,
-      });
-    }
-    return Promise.resolve(res);
-  }
-);
+// connection.onDocumentHighlight(
+//   (params: DocumentHighlightParams): Promise<DocumentHighlight[]> => {
+//     const { textDocument } = params;
+//     const doc = documents.get(textDocument.uri)!;
+//     const text = doc.getText();
+//     const pattern = /\btdx\b/i;
+//     const res: DocumentHighlight[] = [];
+//     let match;
+//     while ((match = pattern.exec(text))) {
+//       res.push({
+//         range: {
+//           start: doc.positionAt(match.index),
+//           end: doc.positionAt(match.index + match[0].length),
+//         },
+//         kind: DocumentHighlightKind.Write,
+//       });
+//     }
+//     return Promise.resolve(res);
+//   }
+// );
 
 // connection.onSignatureHelp(
 //   (params: SignatureHelpParams): Promise<SignatureHelp> => {
@@ -287,7 +287,18 @@ connection.onCompletion(
     // The pass parameter contains the position of the text document in
     // which code complete got requested. For the example we ignore this
     // info and always provide the same completion items.
-    return keywords;
+    // console.log(
+    //   documents.get(_textDocumentPosition.textDocument.uri)!.getText()
+    // );
+    return keywords.map((item) => {
+      return {
+        kind: CompletionItemKind.Function,
+        preselect: true,
+        // filterText: item.detail,
+        filterText: item.label,
+        ...item,
+      };
+    });
   }
 );
 
