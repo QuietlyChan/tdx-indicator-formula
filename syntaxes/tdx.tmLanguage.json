@@ -4,6 +4,9 @@
   "patterns": [
     {
       "include": "#keywords"
+    },
+    {
+      "include": "#string"
     }
   ],
   "repository": {
@@ -12,6 +15,17 @@
         {
           "name": "keyword.control.tdx",
           "match": "\\b(HIGH|H|LOW|L|CLOSE|C|VOL|V)\\b"
+        }
+      ]
+    },
+    "strings": {
+      "name": "string.quoted.double.tdx",
+      "begin": "\"",
+      "end": "\"",
+      "patterns": [
+        {
+          "name": "constant.character.escape.tdx",
+          "match": "\\\\."
         }
       ]
     }

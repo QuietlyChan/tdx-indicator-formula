@@ -1,11 +1,18 @@
 {
   "tokenColors": [
     {
-      "name":"keyword.control.tdx",
+      "name": "keyword.control.tdx",
       "scope": "keyword.control.tdx",
       "settings": {
+        "foreground": "#9CDCFE"
+      }
+    },
+    {
+      "name": "string.quoted.double.tdx",
+      "scope": "string.quoted.double.tdx",
+      "settings": {
         "fontStyle": "italic",
-        "foreground": "#637777"
+        "foreground": "#ff0000"
       }
     }
   ]

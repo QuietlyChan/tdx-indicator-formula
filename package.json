@@ -87,7 +87,7 @@
         ],
         "aliases": [
           "tdx",
-          "txt",
+          "TDX",
           "通达信"
         ],
         "filenames": [],
@@ -101,24 +101,9 @@
     ],
     "themes": [
       {
-        "label": "tdx-vs",
-        "uiTheme": "vs",
-        "path": "./themes/tdx-dark.json"
-      },
-      {
-        "label": "tdx-vs-dark",
+        "label": "通达信深色",
         "uiTheme": "vs-dark",
-        "path": "./themes/tdx-dark.json"
-      },
-      {
-        "label": "tdx-hc-black",
-        "uiTheme": "hc-black",
-        "path": "./themes/tdx-dark.json"
-      },
-      {
-        "label": "tdx-hc-light",
-        "uiTheme": "hc-light",
-        "path": "./themes/tdx-dark.json"
+        "path": "./tdx_Dark.tmTheme"
       }
     ],
     "snippets": [
