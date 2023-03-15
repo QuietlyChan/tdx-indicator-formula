@@ -1,8 +1,8 @@
 {
   "tokenColors": [
     {
-      "name": "keyword.control.tdx",
-      "scope": "keyword.control.tdx",
+      "name": "storage.type.funcion.tdx",
+      "scope": "storage.type.funcion.tdx",
       "settings": {
         "foreground": "#9CDCFE"
       }

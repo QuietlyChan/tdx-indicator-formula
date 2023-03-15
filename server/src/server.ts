@@ -217,6 +217,7 @@ connection.onHover((params: HoverParams): Promise<Hover> => {
   });
 });
 
+// 格式化
 connection.onDocumentFormatting(
   (params: DocumentFormattingParams): Promise<TextEdit[]> => {
     const { textDocument } = params;
@@ -232,6 +233,7 @@ connection.onDocumentFormatting(
           end: doc.positionAt(match.index + match[0].length),
         },
         newText: match[0].replace(/(?<=[A-Z])[A-Z]+/, (r) => r.toLowerCase()),
+        // newText: match[0].replace(/\w+/, (r) => r.toUpperCase()),
       });
     }
 

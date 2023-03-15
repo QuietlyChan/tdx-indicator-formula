@@ -3,17 +3,17 @@
   "scopeName": "source.tdx",
   "patterns": [
     {
-      "include": "#keywords"
+      "include": "#storage"
     },
     {
       "include": "#string"
     }
   ],
   "repository": {
-    "keywords": {
+    "storage": {
       "patterns": [
         {
-          "name": "keyword.control.tdx",
+          "name": "storage.type.funcion.tdx",
           "match": "\\b(HIGH|H|LOW|L|CLOSE|C|VOL|V)\\b"
         }
       ]
