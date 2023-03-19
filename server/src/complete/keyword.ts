@@ -2116,815 +2116,1267 @@ export const keywords = [
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "PEAK",
+    detail: "波峰值(未来函数)",
     documentation: `
-    返回所属指数板块的个数.
+    属于未来函数,前M个ZIG转向波峰值.
+    用法:
+    PEAK(K,N,M)表示之字转向ZIG(K,N)的前M个波峰的数值,M必须大于等于1
+    例如:
+    PEAK(1,5,1)表示%5最高价ZIG转向的上一个波峰的数值
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "PEAKBARS",
+    detail: "波峰位置(未来函数)",
     documentation: `
-    返回所属指数板块的个数.
+    属于未来函数,前M个ZIG转向波峰到当前距离.
+    用法:
+    PEAKBARS(K,N,M)表示之字转向ZIG(K,N)的前M个波峰到当前的周期数,M必须大于等于1
+    例如:
+    PEAKBARS(0,5,1)表示%5开盘价ZIG转向的上一个波峰到当前的周期数
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "SAR",
+    detail: "抛物转向",
     documentation: `
-    返回所属指数板块的个数.
+    抛物转向.
+    用法:
+    SAR(N,S,M),N为计算周期,S为步长,M为极值
+    例如:
+    SAR(10,2,20)表示计算10日抛物转向,步长为2%,极限值为20%
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "SARTURN",
+    detail: "抛物转向点",
     documentation: `
-    返回所属指数板块的个数.
+    抛物转向点.
+    用法:
+    SARTURN(N,S,M),N为计算周期,S为步长,M为极值,若发生向上转向则返回1,若发生向下转向则返回-1,否则为0
+    其用法与SAR函数相同
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "TROUGH",
+    detail: "波谷值(未来函数)",
     documentation: `
-    返回所属指数板块的个数.
+    属于未来函数,前M个ZIG转向波谷值.
+    用法:
+    TROUGH(K,N,M)表示之字转向ZIG(K,N)的前M个波谷的数值,M必须大于等于1
+    例如:
+    TROUGH(2,5,2)表示%5最低价ZIG转向的前2个波谷的数值
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "TROUGHBARS",
+    detail: "波谷位置(未来函数)",
     documentation: `
-    返回所属指数板块的个数.
+    属于未来函数,前M个ZIG转向波谷到当前距离.
+    用法:
+    TROUGHBARS(K,N,M)表示之字转向ZIG(K,N)的前M个波谷到当前的周期数,M必须大于等于1
+    例如:
+    TROUGHBARS(2,5,2)表示%5最低价ZIG转向的前2个波谷到当前的周期数
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "WINNER",
+    detail: "获利盘比例",
     documentation: `
-    返回所属指数板块的个数.
+    获利盘比例.
+    用法:
+    WINNER(CLOSE),表示以当前收市价卖出的获利盘比例,例如返回0.1表示10%获利盘;WINNER(10.5)表示10.5元价格的获利盘比例
+    该函数仅对日线分析周期有效
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "LWINNER",
+    detail: "近期获利盘比例",
     documentation: `
-    返回所属指数板块的个数.
+    近期获利盘比例.
+    用法: LWINNER(5,CLOSE),表示最近5天的那部分成本以当前收市价卖出的获利盘比例
+    例如:
+    返回0.1表示10%获利盘
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "PWINNER",
+    detail: "远期获利盘比例",
     documentation: `
-    返回所属指数板块的个数.
+    远期获利盘比例.
+    用法: PWINNER(5,CLOSE),表示5天前的那部分成本以当前收市价卖出的获利盘比例
+    例如:
+    返回0.1表示10%获利盘
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "COSTEX",
+    detail: "区间成本",
     documentation: `
-    返回所属指数板块的个数.
+    区间成本.
+    用法:
+    例如COSTEX(CLOSE,REF(CLOSE,1)),表示近两日收盘价格间筹码的成本
+    该函数仅对日线分析周期有效
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "PPART",
+    detail: "远期成本分布比例",
     documentation: `
-    返回所属指数板块的个数.
+    远期成本分布比例.
+    用法:
+    PPART(10),表示10个周期前的成本占总成本的比例,0.2表示20%
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "ZIG",
+    detail: "之字转向(未来函数)",
     documentation: `
-    返回所属指数板块的个数.
+    属于未来函数,之字转向.
+    用法:
+    ZIG(K,N),当价格变化量超过N%时转向,K表示0:开盘价,1:最高价,2:最低价,3:收盘价,其余:数组信息
+    例如:
+    ZIG(3,5)表示收盘价的5%的ZIG转向
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "ZIGA",
+    detail: "之字转向(未来函数)",
     documentation: `
-    返回所属指数板块的个数.
+    属于未来函数,之字转向.
+    用法:
+    ZIGA(K,X),当价格变化超过X时转向,K表示0:开盘价,1:最高价,2:最低价,3:收盘价,其余:数组信息
+    例如:
+    ZIGA(3,1.5)表示收盘价变化1.5元的ZIGA转向
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "NewSAR",
+    detail: "新抛物转向",
     documentation: `
-    返回所属指数板块的个数.
+    新抛物转向函数
+    用法:
+    NewSAR(N,S),N为起始统计天数,S为加速因子
+    例如:
+    NewSAR(10,2)表示从10日后开始统计,加速因子为2的抛物转向
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "LFS",
+    detail: "锁定因子",
     documentation: `
-    返回所属指数板块的个数.
+    LFS    返回个股锁定因子
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "INDEXA",
+    detail: "大盘的成交额",
     documentation: `
-    返回所属指数板块的个数.
+    INDEXA
+    返回对应的大盘成交额,分别是上证指数,深证成指,科创50,创业板指,港股为恒生指数,国内期货为对应的L9指数品种(持仓量)
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "INDEXADV",
+    detail: "大盘的上涨家数",
     documentation: `
-    返回所属指数板块的个数.
+    INDEXADV  返回对应的上涨家数,分别是上证指数,深证成指,科创50,创业板指
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "INDEXDEC",
+    detail: "大盘的下跌家数",
     documentation: `
-    返回所属指数板块的个数.
+    INDEXDEC  返回对应的下跌家数,分别是上证指数,深证成指,科创50,创业板指
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "INDEXC",
+    detail: "大盘的收盘价",
     documentation: `
-    返回所属指数板块的个数.
+    INDEXC    返回对应的大盘收盘价,分别是上证指数,深证成指,科创50,创业板指,港股为恒生指数,国内期货为对应的L9指数品种
+    (对应指数的数据必须要先下载到本地) 注:多日线周期(除缺省45日),需要对应数据日期一致
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "INDEXH",
+    detail: "大盘的最高价",
     documentation: `
-    返回所属指数板块的个数.
+    INDEXH    返回对应的大盘最高价,分别是上证指数,深证成指,科创50,创业板指,港股为恒生指数,国内期货为对应的L9指数品种
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "INDEXL",
+    detail: "大盘的最低价",
     documentation: `
-    返回所属指数板块的个数.
+    INDEXL    返回对应的大盘最低价,分别是上证指数,深证成指,科创50,创业板指,港股为恒生指数,国内期货为对应的L9指数品种
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "INDEXO",
+    detail: "大盘的开盘价",
     documentation: `
-    返回所属指数板块的个数.
+    INDEXO    返回对应的大盘开盘价,分别是上证指数,深证成指,科创50,创业板指,港股为恒生指数,国内期货为对应的L9指数品种
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "INDEXV",
+    detail: "大盘的成交量",
     documentation: `
-    返回所属指数板块的个数.
+    INDEXV    返回对应的大盘成交量,分别是上证指数,深证成指,科创50,创业板指,港股为恒生指数,国内期货为对应的L9指数品种
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "HY_INDEXA",
+    detail: "行业指数的成交额",
     documentation: `
-    返回所属指数板块的个数.
+    HY_INDEXA    返回对应的行业指数成交额,如果没有通达信板块指数,港美股没有扩展板块指数,则不支持
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "HY_INDEXADV",
+    detail: "行业指数的上涨家数",
     documentation: `
-    返回所属指数板块的个数.
+    HY_INDEXADV  返回对应的行业指数上涨家数,如果没有通达信板块指数,则不支持
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "HY_INDEXDEC",
+    detail: "行业指数的下跌家数",
     documentation: `
-    返回所属指数板块的个数.
+    HY_INDEXDEC  返回对应的行业指数下跌家数,如果没有通达信板块指数,则不支持
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "HY_INDEXC",
+    detail: "行业指数的收盘价",
     documentation: `
-    返回所属指数板块的个数.
+    HY_INDEXC    返回对应的行业指数收盘价,如果没有通达信板块指数,港美股没有扩展板块指数,则不支持
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "HY_INDEXH",
+    detail: "行业指数的最高价",
     documentation: `
-    返回所属指数板块的个数.
+    HY_INDEXH    返回对应的行业指数最高价,如果没有通达信板块指数,港美股没有扩展板块指数,则不支持
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "HY_INDEXL",
+    detail: "行业指数的最低价",
     documentation: `
-    返回所属指数板块的个数.
+    HY_INDEXL    返回对应的行业指数最低价,如果没有通达信板块指数,港美股没有扩展板块指数,则不支持
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "HY_INDEXO",
+    detail: "行业指数的开盘价",
     documentation: `
-    返回所属指数板块的个数.
+    HY_INDEXO    返回对应的行业指数开盘价,如果没有通达信板块指数,港美股没有扩展板块指数,则不支持
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "HY_INDEXV",
+    detail: "行业指数的成交量",
     documentation: `
-    返回所属指数板块的个数.
+    HY_INDEXV    返回对应的行业指数成交量,如果没有通达信板块指数,港美股没有扩展板块指数,则不支持
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "DPZSCODE",
+    detail: "所属的大盘指数的代码",
     documentation: `
-    返回所属指数板块的个数.
+    所属的大盘指数的代码.比如: CALCSTOCKINDEX(DPZSCODE,'KDJ',3);
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "DPZSNAME",
+    detail: "所属的大盘指数的名称",
     documentation: `
-    返回所属指数板块的个数.
+    所属的大盘指数的名称.比如: DRAWTEXT_FIX(ISLASTBAR,0,0,0,DPZSNAME);
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "UNDERCODE",
+    detail: "对应标的的代码",
     documentation: `
-    返回所属指数板块的个数.
+    返回对应标的的代码,对于股票期权品种和可转债品种等有效.
+    比如: CALCSTOCKINDEX(UNDERCODE,'KDJ',3);
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "UNDERLYC",
+    detail: "对应标的的收盘价",
     documentation: `
-    返回所属指数板块的个数.
+    UNDERLYC 返回对应标的的收盘价,对于股票期权品种和可转债品种等有效
+    (对应指数的数据必须要先下载到本地)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "TRADENUM",
+    detail: "总成交单数",
     documentation: `
-    返回所属指数板块的个数.
+    TRADENUM
+    逐笔成交总单数,沪深京品种的资金流向,仅日线以上周期,用于特定版本
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "TRADEINNUM",
+    detail: "逐笔买入成交单数",
     documentation: `
-    返回所属指数板块的个数.
+    TRADEINNUM
+    逐笔买入成交单数,相当于L2_VOLNUM(0,0)+L2_VOLNUM(1,0),沪深京品种的资金流向,仅日线以上周期,用于特定版本
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "TRADEOUTNUM",
+    detail: "逐笔卖出成交单数",
     documentation: `
-    返回所属指数板块的个数.
+    TRADEOUTNUM
+    逐笔卖出成交单数,相当于L2_VOLNUM(0,1)+L2_VOLNUM(1,1),沪深京品种的资金流向,仅日线以上周期,用于特定版本
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "LARGETRDINNUM",
+    detail: "逐笔买入大单成交单数",
     documentation: `
-    返回所属指数板块的个数.
+    LARGETRDINNUM
+    逐笔买入大单成交单数,相当于L2_VOLNUM(0,0),沪深京品种的资金流向,仅日线以上周期,用于特定版本
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "LARGETRDOUTNUM",
+    detail: "逐笔卖出大单成交单数",
     documentation: `
-    返回所属指数板块的个数.
+    LARGETRDOUTNUM
+    逐笔卖出大单成交单数,相当于L2_VOLNUM(0,1),沪深京品种的资金流向,仅日线以上周期,用于特定版本
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "L2_VOLNUM",
+    detail: "单数分档",
     documentation: `
-    返回所属指数板块的个数.
+    L2_VOLNUM(N,M)
+    单数分档,按: N(0--1):(超大+大)/(中+小),M(0--1):买/卖二类,沪深京品种的资金流向,仅日线以上周期,用于特定版本
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "L2_VOL",
+    detail: "成交量分档",
     documentation: `
-    返回所属指数板块的个数.
+    L2_VOL(N,M)
+    成交量分档,按: N(0--3):超大/大/中/小四档处理,M(0--3):买入/卖出/主买/主卖四类,沪深京品种的资金流向,仅日线以上周期,用于特定版本
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "L2_AMO",
+    detail: "成交额分档",
     documentation: `
-    返回所属指数板块的个数.
+    L2_AMO(N,M)
+    成交额分档,按: N(0--3):超大/大/中/小四档处理,M(0--3):买入/卖出/主买/主卖四类,沪深京品种的资金流向,仅日线以上周期,用于特定版本
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "CUR_BUYORDER",
+    detail: "总委买量",
     documentation: `
-    返回所属指数板块的个数.
+    CUR_BUYORDER
+    总委买量,序列数据,专业版等(资金流向功能)沪深京品种行情专用
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "CUR_SELLORDER",
+    detail: "总委卖量",
     documentation: `
-    返回所属指数板块的个数.
+    CUR_SELLORDER
+    总委卖量,序列数据,专业版等(资金流向功能)沪深京品种行情专用
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "ACTINVOL",
+    detail: "主动买成交量",
     documentation: `
-    返回所属指数板块的个数.
+    ACTINVOL
+    主动买成交量,相当于L2_VOL(0,2)+L2_VOL(1,2)+L2_VOL(2,2)+L2_VOL(3,2),沪深京品种的资金流向,仅日线以上周期,用于特定版本
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "ACTOUTVOL",
+    detail: "主动卖成交量",
     documentation: `
-    返回所属指数板块的个数.
+    ACTOUTVOL
+    主动卖成交量,相当于L2_VOL(0,3)+L2_VOL(1,3)+L2_VOL(2,3)+L2_VOL(3,3),沪深京品种的资金流向,仅日线以上周期,用于特定版本
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "LARGEINTRDVOL",
+    detail: "逐笔买入大单成交量",
     documentation: `
-    返回所属指数板块的个数.
+    LARGEINTRDVOL
+    逐笔买入大单成交量,相当于L2_VOL(0,0)+L2_VOL(1,0),沪深京品种的资金流向,仅日线以上周期,用于特定版本
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "LARGEOUTTRDVOL",
+    detail: "逐笔卖出大单成交量",
     documentation: `
-    返回所属指数板块的个数.
+    LARGEOUTTRDVOL
+    逐笔卖出大单成交量,相当于L2_VOL(0,1)+L2_VOL(1,1),沪深京品种的资金流向,仅日线以上周期,用于特定版本
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "BIDORDERVOL",
+    detail: "累计总有效委买量",
     documentation: `
-    返回所属指数板块的个数.
+    BIDORDERVOL
+    累计总有效委买量,专业版等(资金流向功能)沪深京品种行情专用 累计总有效委买量-累计总有效撤买量=总买+总成交量
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "BIDCANCELVOL",
+    detail: "累计总有效撤买量",
     documentation: `
-    返回所属指数板块的个数.
+    BIDCANCELVOL
+    累计总有效撤买量,专业版等(资金流向功能)沪深京品种行情专用  累计总有效委买量-累计总有效撤买量=总买+总成交量
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "AVGBIDPX",
+    detail: "最新委买均价",
     documentation: `
-    返回所属指数板块的个数.
+    AVGBIDPX
+    专业版等(资金流向功能)沪深京品种行情专用:最新委买均价
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "OFFERORDERVOL",
+    detail: "累计总有效委卖量",
     documentation: `
-    返回所属指数板块的个数.
+    OFFERORDERVOL
+    累计总有效委卖量,专业版等(资金流向功能)沪深京品种行情专用  累计总有效委卖量-累计总有效撤卖量=总卖+总成交量
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "OFFERCANCELVOL",
+    detail: "累计总有效撤卖量",
     documentation: `
-    返回所属指数板块的个数.
+    OFFERCANCELVOL
+    累计总有效撤卖量,专业版等(资金流向功能)沪深京品种行情专用  累计总有效委卖量-累计总有效撤卖量=总卖+总成交量
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "AVGOFFERPX",
+    detail: "最新委卖均价",
     documentation: `
-    返回所属指数板块的个数.
+    AVGOFFERPX
+    专业版等(资金流向功能)沪深京品种行情专用:最新委卖均价
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "PLOYLINE",
+    detail: "折线段",
     documentation: `
-    返回所属指数板块的个数.
+    绘制折线段.
+    用法:
+    PLOYLINE(COND,PRICE),当COND条件满足时,以PRICE位置为顶点画折线连接.
+    例如:
+    PLOYLINE(HIGH>=HHV(HIGH,20),HIGH)表示在创20天新高点之间画折线
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "DRAWLINE",
+    detail: "直线段(未来函数)",
     documentation: `
-    返回所属指数板块的个数.
+    属于未来函数,绘制直线段.
+    用法:
+    DRAWLINE(COND1,PRICE1,COND2,PRICE2,EXPAND),当COND1条件满足时,在PRICE1位置画直线起点,当COND2条件满足时,在PRICE2位置画直线终点,EXPAND为1表示是延长类型.
+    例如:
+    DRAWLINE(HIGH>=HHV(HIGH,20),HIGH,LOW<=LLV(LOW,20),LOW,1)表示在创20天新高与创20天新低之间画直线并且向右延长.
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "DRAWSL",
+    detail: "斜线",
     documentation: `
-    返回所属指数板块的个数.
+    绘制斜线.
+    用法:
+    DRAWSL(COND,PRICE,SLOPE,LEN,DIRECT),当COND条件满足时,在PRICE位置画斜线,SLOPE为斜率,LEN为长度,DIRECT为0向右延伸,1向左延伸,2双向延伸.
+    注意:
+    1.K线间的纵向高度差为SLOPE;
+    2.SLOPE为0时,为水平线;
+    3.SLOPE为10000时,为垂直线,LEN为向上的像素高度,DIRECT表示向上或向下延伸;
+    4.SLOPE和LEN支持变量;
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "DRAWKLINE",
+    detail: "K线",
     documentation: `
-    返回所属指数板块的个数.
+    DRAWKLINE(HIGH,OPEN,LOW,CLOSE).
+    用法:
+    以HIGH为最高价,OPEN为开盘价,LOW为最低,CLOSE收盘画K线
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "STICKLINE",
+    detail: "柱状线",
     documentation: `
-    返回所属指数板块的个数.
+    绘制柱线.
+    用法:
+    STICKLINE(COND,PRICE1,PRICE2,WIDTH,EMPTY),当COND条件满足时,在PRICE1和PRICE2位置之间画柱状线,宽度为WIDTH(4为标准间距),EMPTY为0画实心柱,-1画虚线空心柱,1画实线空心柱,2从中间向上下画实线柱(满占,PRICE1无用),3从中间向上下画实线柱(半满占,PRICE1无用).
+    例如:
+    STICKLINE(CLOSE>OPEN,CLOSE,OPEN,0.8,1)表示画K线中阳线的空心柱体部分.
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "DRAWICON",
+    detail: "图标",
     documentation: `
-    返回所属指数板块的个数.
+    绘制小图标.
+    用法:
+    DRAWICON(COND,PRICE,TYPE),当COND条件满足时,在PRICE位置画TYPE号图标(TYPE为1--46).
+    例如:
+    DRAWICON(CLOSE>OPEN,LOW,1)表示当收阳时在最低价位置画1号图标.
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "DRAWTEXT",
+    detail: "文字",
     documentation: `
-    返回所属指数板块的个数.
+    1.显示文字;2.在指标排序中显示字符串栏目.
+    用法:
+    DRAWTEXT(COND,PRICE,TEXT),当COND条件满足时,在PRICE位置书写文字TEXT.
+    例如:
+    DRAWTEXT(CLOSE/OPEN>1.08,LOW,'大阳线')表示当日实体阳线大于8%时在最低价位置显示'大阳线'字样.若文字中含有&,则进行折行.最多只能显示250个字符
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "DRAWTEXT_FIX",
+    detail: "定点文字",
     documentation: `
-    返回所属指数板块的个数.
+    1.固定位置显示文字;2.在指标排序中显示字符串栏目.
+    用法:
+    DRAWTEXT_FIX(COND,X,Y,TYPE,TEXT),COND中一般需要加ISLASTBAR,当COND条件满足时,在当前指标窗口内(X,Y)位置书写文字TEXT,X,Y为书写点在窗口中相对于左上角的百分比,TYPE:0为左对齐,1为右对齐.
+    例如:
+    DRAWTEXT_FIX(ISLASTBAR AND CLOSE/OPEN>1.08,0.5,0.5,0,'大阳线')表示最后一个交易日实体阳线大于8%时在窗口中间位置显示'大阳线'字样.若文字中含有&,则进行折行.最多只能显示250个字符
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "DRAWNUMBER",
+    detail: "画数字",
     documentation: `
-    返回所属指数板块的个数.
+    画出数字.
+    用法:
+    DRAWNUMBER(COND,PRICE,NUMBER),当COND条件满足时,在PRICE位置书写数字NUMBER.
+    例如:
+    DRAWNUMBER(CLOSE/OPEN>1.08,LOW,C)表示当日实体阳线大于8%时在最低价位置显示收盘价.
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "DRAWNUMBER_FIX",
+    detail: "画定点数字",
     documentation: `
-    返回所属指数板块的个数.
+    固定位置显示数字.
+    用法:
+    DRAWNUMBER_FIX(COND,X,Y,TYPE,NUMBER),COND中一般需要加ISLASTBAR,当COND条件满足时,在当前指标窗口内(X,Y)位置书写数字NUMBER,X,Y为书写点在窗口中相对于左上角的百分比,TYPE:0为左对齐,1为右对齐.
+    例如:
+    DRAWNUMBER_FIX(ISLASTBAR AND CLOSE/OPEN>1.08,0.5,0.5,0,C)表示最后一个交易日实体阳线大于8%时在窗口中间位置显示收盘价.
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "RGB",
+    detail: "自定色",
     documentation: `
-    返回所属指数板块的个数.
+    将自定颜色作为数值输出.
+    用法:
+    RGB(Red,Green,Blue),输出为0XBBGGRR,参数使用十进制数,范围为0至255,以最近一个周期数值为准.
+    例如:
+    RGB(0,0,255)输出结果为16进制的0XFF0000.
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "DRAWBAND",
+    detail: "画带状线",
     documentation: `
-    返回所属指数板块的个数.
+    画出带状线.
+    用法:
+    DRAWBAND(VAL1,COLOR1,VAL2,COLOR2),当VAL1>VAL2时,在VAL1和VAL2之间填充COLOR1;当VAL1<VAL2时,填充COLOR2,这里的颜色均使用RGB函数计算得到.
+    例如:
+    DRAWBAND(OPEN,RGB(0,224,224),CLOSE,RGB(255,96,96));
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "DRAWBMP",
+    detail: "画图片",
     documentation: `
-    返回所属指数板块的个数.
+    画出图片.
+    用法:
+    DRAWBMP(COND,PRICE,'Bmp文件名'),当条件COND满足时,在PRICE位置画T0002目录下面的signals目录下面的"Bmp文件名";
+    例如:
+    DRAWBMP(O>C,CLOSE,'高开');
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "DRAWGBK",
+    detail: "填充背景",
     documentation: `
-    返回所属指数板块的个数.
+    填充背景.
+    用法:
+    DRAWGBK(COND,COLOR1,COLOR2,是否横向渐进,'BMP或PNG文件名',是否拉升BMP或PNG文件名),当条件COND满足时填充背景,如果COLOR1和COLOR2有一个不为0,则以COLOR1到COLOR2的渐变色为背景,否则画T0002目录下面的signals目录下面的'Bmp或Png文件名'(优先使用BMP文件).
+    例如:
+    DRAWGBK(ISLASTBAR AND O>C,RGB(0,255,0),RGB(255,0,0),0,'背景图',0);
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "DRAWGBK_DIV",
+    detail: "填充部分背景",
     documentation: `
-    返回所属指数板块的个数.
+    填充部分背景.
+    用法:
+    DRAWGBK_DIV(COND,COLOR1,COLOR2,填色方式,填充范围),填充满足COND条件的背景区域
+    填色方式:0是上下渐进 1是左右渐进 2是用COLOR1画框线 3是用COLOR1画框线,用COLOR2填充
+    填充范围:0为整个区域 1为最高最低区(主图) 2为开盘收盘区(主图) 
+    例如:
+    DRAWGBK_DIV(C>O,RGB(0,255,0),RGB(255,0,0),0,0);
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "DRAWRECTREL",
+    detail: "相对位置上画矩形",
     documentation: `
-    返回所属指数板块的个数.
+    相对位置上画矩形.
+    用法:
+    DRAWRECTREL(LEFT,TOP,RIGHT,BOTTOM,COLOR),以图形窗口(LEFT,TOP)为左上角,(RIGHT,BOTTOM)为右下角绘制矩形,坐标单位是窗口沿水平和垂直方向的1/1000,取值范围是0—999,超出范围则可能显示在图形窗口外,矩形中间填充颜色COLOR,COLOR为0表示不填充.
+    例如:
+    DRAWRECTREL(0,0,500,500,RGB(255,255,0)),NOFRAME;表示在图形最左上部1/4位置用黄色绘制矩形.NOFRAME表示不加边框
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "SETCODE",
+    detail: "市场类型",
     documentation: `
-    返回所属指数板块的个数.
+    SETCODE 市场类型
+    0:深圳 1:上海 2:北京 47:中金所期货 28:郑州商品 29:大连商品 30:上海商品,27:香港指数 31:香港主板,48:香港创业板...
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "MINDIFF",
+    detail: "最小变动价位",
     documentation: `
-    返回所属指数板块的个数.
+    MINDIFF  返回某品种的最小变动价位(也是交易价格的最小间隔单位)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "MULTIPLIER",
+    detail: "期货每手乘数",
     documentation: `
-    返回所属指数板块的个数.
+    MULTIPLIER  期货每手乘数
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "TQFLAG",
+    detail: "当前的复权状态",
     documentation: `
-    返回所属指数板块的个数.
+    TQFLAG  当前的复权状态,0:无复权 1:前复权 2:后复权
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "USEDDATANUM",
+    detail: "当前使用的数据个数",
     documentation: `
-    返回所属指数板块的个数.
+    USEDDATANUM  当前使用的数据个数
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "LOCALDAYNUM",
+    detail: "[新]本地日线数据个数",
     documentation: `
-    返回所属指数板块的个数.
+    LOCALDAYNUM  客户端本地已下载的该品种的日线数据个数(含当日)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "TOTALCAPITAL",
+    detail: "当前总股本(手)",
     documentation: `
-    返回所属指数板块的个数.
+    TOTALCAPITAL  当前总股本,单位为手,债券1手为10张,其它为100
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "CAPITAL",
+    detail: "当前流通股本(手)",
     documentation: `
-    返回所属指数板块的个数.
+    CAPITAL  当前流通股本,单位为手,债券1手为10张,其它为100
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(1)",
+    detail: "总股本(股)",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(1) 总股本(随时间可能有变化)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(2)",
+    detail: "市场类型",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(2) 用法同SETCODE
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(3)",
+    detail: "沪深京品种类型",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(3) 沪深京品种类型
+    0:指数,1:A股主板,2:北证A股,3:创业板,4:科创板,5:B股,6:债券,7:基金,8:权证,9:其它,10:非沪深京品种
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(4)",
+    detail: "沪深京行业代码",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(4) 沪深京品种行业代码(二级)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(5)",
+    detail: "B股",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(5) B股
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(6)",
+    detail: "H股",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(6) H股
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(7)",
+    detail: "流通股本(股)",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(7)  流通股本(随时间可能有变化)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(8)",
+    detail: "股东人数(户)",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(8)  股东人数(户)(上市公司的最新数据)
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(9)",
+    detail: "资产负债率%",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(9)  资产负债率
+    即:(总资产-净资产-少数股东权益)/总资产*100,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(10)",
+    detail: "总资产",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(10) 总资产,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(11)",
+    detail: "流动资产",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(11) 流动资产,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(12)",
+    detail: "固定资产",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(12) 固定资产,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(13)",
+    detail: "无形资产",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(13) 无形资产,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(15)",
+    detail: "流动负债",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(15) 流动负债,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(16)",
+    detail: "少数股东权益",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(16) 少数股东权益,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(17)",
+    detail: "资本公积金",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(17) 资本公积金,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(18) ",
+    detail: "每股公积金",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(18)  每股公积金,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(19)",
+    detail: "股东权益(净资产)",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(19) 股东权益(净资产),上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(20)",
+    detail: "营业收入",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(20) 营业收入,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(21)",
+    detail: "营业成本",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(21) 营业成本,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(22)",
+    detail: "应收帐款",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(22) 应收帐款,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(23)",
+    detail: "营业利润",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(23) 营业利润,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(24)",
+    detail: "投资收益",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(24) 投资收益,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(25)",
+    detail: "经营现金流量",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(25) 经营现金流量,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(26)",
+    detail: "总现金流量",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(26) 总现金流量,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(27)",
+    detail: "存货",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(27) 存货,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(28)",
+    detail: "利润总额",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(28) 利润总额,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(29)",
+    detail: "税后利润",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(29) 税后利润,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(30)",
+    detail: "归母净利润",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(30) 归母净利润,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(31)",
+    detail: "未分配利润",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(31) 未分配利润,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(32)",
+    detail: "每股未分配利润",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(32)  每股未分配利润,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(33)",
+    detail: "每股收益(全年折算)",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(33)  每股收益(折算为全年收益),对于沪深京品种有效
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(34)",
+    detail: "每股净资产",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(34)  每股净资产,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(35)",
+    detail: "季报调整净资产",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(35) 季报中调整后的每股净资产(如果没有调整过,则为0),上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(36)",
+    detail: "股东权益比",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(36)  股东权益比,上市公司最近一期财报数据
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(37)",
+    detail: "第几期季度报告",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(37)  第几期季度报告,1为一季报,2为中报,3为三季报,4为年报,对于沪深京品种有效
     `,
   },
   {
-    label: "ZSBLOCKNUM",
-    detail: "所属指数板块(个数)",
+    label: "FINANCE(38)",
+    detail: "每股收益(最近一期)",
     documentation: `
-    返回所属指数板块的个数.
+    FINANCE(38)  每股收益,上市公司最近一期财报数据
+    `,
+  },
+  {
+    label: "FINANCE(39)",
+    detail: "总市值",
+    documentation: `
+    FINANCE(39)  总市值(包括在香港等地上市的股份市值,按同市场报价汇总)
+    `,
+  },
+  {
+    label: "FINANCE(40)",
+    detail: "流通市值",
+    documentation: `
+    FINANCE(40)  流通市值
+    `,
+  },
+  {
+    label: "FINANCE(41)",
+    detail: "AB股总市值",
+    documentation: `
+    FINANCE(41)  AB股总市值(不包括在香港等地上市的股份市值)
+    `,
+  },
+  {
+    label: "FINANCE(42)",
+    detail: "上市的天数",
+    documentation: `
+    FINANCE(42)  上市的天数
+    `,
+  },
+  {
+    label: "FINANCE(43)",
+    detail: "利润同比%",
+    documentation: `
+    FINANCE(43)  净利润同比增长率,上市公司最近一期财报数据
+    `,
+  },
+  {
+    label: "FINANCE(44)",
+    detail: "收入同比%",
+    documentation: `
+    FINANCE(44)  收入同比增长率,上市公司最近一期财报数据
+    `,
+  },
+  {
+    label: "FINANCE(45)",
+    detail: "股息率%",
+    documentation: `
+    FINANCE(45)  股息率
+    `,
+  },
+  {
+    label: "FINANCE(46)",
+    detail: "自由流通股本(股)",
+    documentation: `
+    FINANCE(46)  自由流通股本(股) 流通股本中减去占5%以上股份的部分
+    `,
+  },
+  {
+    label: "FINANCE(48)",
+    detail: "是否为陆通股标的",
+    documentation: `
+    FINANCE(48)  是否为陆通股标的
+    `,
+  },
+  {
+    label: "FINANCE(49)",
+    detail: "今日权息标识",
+    documentation: `
+    FINANCE(49)  今日权息标识 0:无 1:分红 2:送转股 3:分红+送转股 4:配股
+    `,
+  },
+  {
+    label: "FINANCE(50)",
+    detail: "是否属于沪深300",
+    documentation: `
+    FINANCE(50)  是否属于沪深300
+    `,
+  },
+  {
+    label: "FINANCE(51)",
+    detail: "是否含可转债",
+    documentation: `
+    FINANCE(51)  是否含可转债
+    `,
+  },
+  {
+    label: "FINANCE(52)",
+    detail: "是否为融资融券标的",
+    documentation: `
+    FINANCE(52)  是否为融资融券标的
+    `,
+  },
+  {
+    label: "FINANCE(53)",
+    detail: "每股股息(港股,美股)",
+    documentation: `
+    FINANCE(53) 每股股息(港股,美股)
+    `,
+  },
+  {
+    label: "FINANCE(54)",
+    detail: "扣非净利润",
+    documentation: `
+    FINANCE(54) 扣非净利润,上市公司最近一期财报数据
+    `,
+  },
+  {
+    label: "FINANCE(55)",
+    detail: "研发费用",
+    documentation: `
+    FINANCE(55) 研发费用,上市公司最近一期财报数据
+    `,
+  },
+  {
+    label: "FINANCE(56)",
+    detail: "员工人数",
+    documentation: `
+    FINANCE(56) 员工人数,上市公司最近一期财报数据
+    `,
+  },
+  {
+    label: "FINANCE(57)",
+    detail: "货币资金",
+    documentation: `
+    FINANCE(57) 货币资金,上市公司最近一期财报数据
+    `,
+  },
+  {
+    label: "FINANCE(58)",
+    detail: "合同负债",
+    documentation: `
+    FINANCE(58) 合同负债,上市公司最近一期财报数据
+    `,
+  },
+  {
+    label: "FINANCE(59)",
+    detail: "其它权益工具",
+    documentation: `
+    FINANCE(59) 其它权益工具,上市公司最近一期财报数据
+    `,
+  },
+  {
+    label: "FINANCE(60)",
+    detail: "行权比例(权证,期权)",
+    documentation: `
+    FINANCE(60)  行权比例(权证,期权)
+    `,
+  },
+  {
+    label: "FINANCE(61)",
+    detail: "行权价(权证,期权)",
+    documentation: `
+    FINANCE(61)  行权价(权证,期权)
+    `,
+  },
+  {
+    label: "FINANCE(62)",
+    detail: "杠杆比率(权证,期权)",
+    documentation: `
+    FINANCE(62)  杠杆比率(权证,期权),实际杠杆比率为FINANCE(62)*FINANCE(68)
+    `,
+  },
+  {
+    label: "FINANCE(63)",
+    detail: "内在价值(权证,期权)",
+    documentation: `
+    FINANCE(63)  内在价值(权证,期权)
+    `,
+  },
+  {
+    label: "FINANCE(64)",
+    detail: "溢价率(权证,期权)",
+    documentation: `
+    FINANCE(64)  溢价率(权证,期权)
+    `,
+  },
+  {
+    label: "FINANCE(65)",
+    detail: "时间价值(权证,期权)",
+    documentation: `
+    FINANCE(65)  时间价值(权证,期权)
+    `,
+  },
+  {
+    label: "FINANCE(66)",
+    detail: "剩余天数(期货,期权)",
+    documentation: `
+    FINANCE(66)  剩余天数(期货,期权)
+    `,
+  },
+  {
+    label: "FINANCE(67)",
+    detail: "合约乘数(期权)",
+    documentation: `
+    FINANCE(67)  合约乘数(期权)
+    `,
+  },
+  {
+    label: "FINANCE(68)",
+    detail: "Delta对冲值(权证,期权)",
+    documentation: `
+    FINANCE(68)  Delta对冲值(权证,期权)
+    `,
+  },
+  {
+    label: "FINANCE(69)",
+    detail: "认购认沽类型(股票期权)",
+    documentation: `
+    FINANCE(69)  认购认沽类型(股票期权),0表示是认购,1表示是认沽
+    `,
+  },
+  {
+    label: "FINANCE(80)",
+    detail: "最近财报公告离现在的天数",
+    documentation: `
+    FINANCE(80)  最近财报公告离现在的自然日天数,仅用于PC客户端
+    `,
+  },
+  {
+    label: "FINANCE(81)",
+    detail: "最后涨停板离现在的天数",
+    documentation: `
+    FINANCE(81)  最后涨停板离现在的自然日天数,仅用于PC客户端
+    `,
+  },
+  {
+    label: "FINANCE(82)",
+    detail: "最后跌停板离现在的天数",
+    documentation: `
+    FINANCE(82)  最后跌停板离现在的自然日天数,仅用于PC客户端
+    `,
+  },
+  {
+    label: "FINANCE(83)",
+    detail: "最后上榜离现在的天数",
+    documentation: `
+    FINANCE(83)  最后上榜离现在的自然日天数,仅用于PC客户端
+    `,
+  },
+  {
+    label: "FINANCE(84)",
+    detail: "最近停牌离现在的天数",
+    documentation: `
+    FINANCE(84)  最近停牌离现在的自然日天数,仅用于PC客户端
+    `,
+  },
+  {
+    label: "FINANCE(85)",
+    detail: "最近业绩预告离现在的天数",
+    documentation: `
+    FINANCE(85)  最近业绩预告离现在的自然日天数,仅用于PC客户端
+    `,
+  },
+  {
+    label: "FINANCE(86)",
+    detail: "最近股份解禁离现在的天数",
+    documentation: `
+    FINANCE(86)  最近股份解禁离现在的自然日天数,仅用于PC客户端
+    `,
+  },
+  {
+    label: "FINANCE(87)",
+    detail: "最近定增股上市离现在的天数",
+    documentation: `
+    FINANCE(87)  最近定增股上市离现在的自然日天数,仅用于PC客户端
+    `,
+  },
+  {
+    label: "FINANCE(88)",
+    detail: "[新]最近北上大额增仓日离现在的天数",
+    documentation: `
+    FINANCE(88)  最近北上大额增仓日离现在的自然日天数,仅用于PC客户端
+    `,
+  },
+  {
+    label: "FINANCE(89)",
+    detail: "[新]最近北上大额减仓日离现在的天数",
+    documentation: `
+    FINANCE(89)  最近北上大额减仓日离现在的自然日天数,仅用于PC客户端
+    `,
+  },
+  {
+    label: "FINANCE(90)",
+    detail: "[新]最近回购预案日离现在的天数",
+    documentation: `
+    FINANCE(90)  最近回购预案日离现在的自然日天数,仅用于PC客户端
+    `,
+  },
+  {
+    label: "FINANCE(91)",
+    detail: "[新]最近股权激励预案日离现在的天数",
+    documentation: `
+    FINANCE(91)  最近股权激励预案日离现在的自然日天数,仅用于PC客户端
     `,
   },
 ];
