@@ -3,6 +3,12 @@
  * Licensed under the MIT License. See License.txt in the project root for license information.
  * ------------------------------------------------------------------------------------------ */
 import { keywords } from "./complete/keyword";
+
+let tmp = "";
+keywords.map(item=>{
+  tmp+=item.label+"|";
+});
+console.log(tmp);
 import {
   createConnection,
   TextDocuments,
