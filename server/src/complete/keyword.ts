@@ -3533,4 +3533,1123 @@ export const keywords = [
     DYNAINFO(23) 返回外盘,板块指数则返回涨停家数 即时行情数据
     `,
   },
+  {
+    label: "SELLVOL",
+    detail: "内盘",
+    documentation: `
+    返回内盘,即DYNAINFO(22) 即时行情数据
+    `,
+  },
+  {
+    label: "BUYVOL",
+    detail: "外盘",
+    documentation: `
+    返回外盘,即DYNAINFO(23) 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(24) ",
+    detail: "涨速",
+    documentation: `
+    DYNAINFO(24) 返回涨速 报价界面行情数据 转换成幅度需要乘100
+    `,
+  },
+  {
+    label: "DYNAINFO(25)",
+    detail: "几分钟前的价格",
+    documentation: `
+    DYNAINFO(25) 返回几分钟前的价格,周期由涨速周期决定,一般为5分钟 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(26)",
+    detail: "涨停价",
+    documentation: `
+    DYNAINFO(26) 返回涨停价 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(27)",
+    detail: "跌停价",
+    documentation: `
+    DYNAINFO(27) 返回跌停价 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(34)",
+    detail: "昨日涨幅",
+    documentation: `
+    DYNAINFO(34) 昨日涨幅(对沪深京,沪深指数和通达信板块指数有效) 转换成幅度需要乘100
+    比如计算前天的收盘价:DYNAINFO(3)/(1+DYNAINFO(34));
+    `,
+  },
+  {
+    label: "DYNAINFO(36)",
+    detail: "[新]换手率Z",
+    documentation: `
+    DYNAINFO(36) 自由流通换手率(序列数据,每个周期的数据不同,使用最新的自由流通股本) 转换成幅度需要乘100 比如DYNAINFO(38)>0.25表示换手超过25%
+    `,
+  },
+  {
+    label: "DYNAINFO(37)",
+    detail: "换手率",
+    documentation: `
+    DYNAINFO(37) 换手率(序列数据,每个周期的数据不同,使用的流通股本为最近数据) 转换成幅度需要乘100 比如DYNAINFO(37)>0.1表示换手超过10%
+    `,
+  },
+  {
+    label: "DYNAINFO(38)",
+    detail: "市盈(静)",
+    documentation: `
+    DYNAINFO(38) 静态市盈率 沪深京,港股和美股品种等有效
+    `,
+  },
+  {
+    label: "DYNAINFO(39)",
+    detail: "市盈(动)",
+    documentation: `
+    DYNAINFO(39) 动态市盈率 即时行情数据 沪深京品种有效
+    `,
+  },
+  {
+    label: "DYNAINFO(40) ",
+    detail: "市盈(TTM)",
+    documentation: `
+    DYNAINFO(40) 市盈率(根据最近12个月的每股收益得到的市盈率) 即时行情数据 沪深京品种有效
+    `,
+  },
+  {
+    label: "DYNAINFO(49)",
+    detail: "成交方向",
+    documentation: `
+    DYNAINFO(49) 成交方向 即时行情数据 0:主动买 1:主动卖 2:中性单
+    `,
+  },
+  {
+    label: "DYNAINFO(50)",
+    detail: "采样点数(分笔数)",
+    documentation: `
+    DYNAINFO(50)  采样点数,即分时成交明细个数,相当于报价中的活跃度 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(51)",
+    detail: "内外比",
+    documentation: `
+    DYNAINFO(51) 内外比 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(52)",
+    detail: "港股资金流向",
+    documentation: `
+    DYNAINFO(52) 港股资金流向(根据当前股票内外盘统计) 单位为万 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(53)",
+    detail: "应计利息/昨净值",
+    documentation: `
+    DYNAINFO(53) 应计利息/某些基金的昨日净值(100份) 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(54) ",
+    detail: "IOPV",
+    documentation: `
+    DYNAINFO(54) 某些基金的单位净值 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(55)",
+    detail: "基金估算涨幅%",
+    documentation: `
+    DYNAINFO(55) 开放式基金的估算涨幅% 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(57)",
+    detail: "笔涨跌",
+    documentation: `
+    DYNAINFO(57) 笔涨跌 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(58)",
+    detail: "买量(即买一量)",
+    documentation: `
+    DYNAINFO(58)  最新叫买量 即时行情数据 如果是早盘或尾盘期间,买一量为匹配量或盘后定价交易盘口量,用此函数预警时请注意
+    `,
+  },
+  {
+    label: "DYNAINFO(59)",
+    detail: "卖量(即卖一量)",
+    documentation: `
+    DYNAINFO(59)  最新叫卖量 即时行情数据 如果是早盘或尾盘期间,卖一量为匹配量或盘后定价交易盘口量,用此函数预警时请注意
+    `,
+  },
+  {
+    label: "DYNAINFO(60)",
+    detail: "沪深总上涨家数",
+    documentation: `
+    DYNAINFO(60) 沪深总上涨家数 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(61)",
+    detail: "沪深总下跌家数",
+    documentation: `
+    DYNAINFO(61) 沪深总下跌家数 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(62)",
+    detail: "沪深总成交金额",
+    documentation: `
+    DYNAINFO(62) 沪深总成交金额 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(63)",
+    detail: "3日涨幅",
+    documentation: `
+    DYNAINFO(63) 3日涨幅(对沪深京,沪深指数和通达信板块指数有效) 转换成幅度需要乘100
+    `,
+  },
+  {
+    label: "DYNAINFO(64)",
+    detail: "5日涨幅",
+    documentation: `
+    DYNAINFO(64) 5日涨幅(对沪深京,沪深指数和通达信板块指数有效) 转换成幅度需要乘100
+    `,
+  },
+  {
+    label: "DYNAINFO(65)",
+    detail: "10日涨幅",
+    documentation: `
+    DYNAINFO(65) 10日涨幅(对沪深京,沪深指数和通达信板块指数有效) 转换成幅度需要乘100
+    `,
+  },
+  {
+    label: "DYNAINFO(66)",
+    detail: "20日涨幅",
+    documentation: `
+    DYNAINFO(66) 20日涨幅(对沪深京,沪深指数和通达信板块指数有效) 转换成幅度需要乘100
+    `,
+  },
+  {
+    label: "DYNAINFO(67)",
+    detail: "60日涨幅",
+    documentation: `
+    DYNAINFO(67) 60日涨幅(对沪深京,沪深指数和通达信板块指数有效) 转换成幅度需要乘100
+    `,
+  },
+  {
+    label: "DYNAINFO(68)",
+    detail: "年初至今涨幅",
+    documentation: `
+    DYNAINFO(68) 年初至今涨幅(对沪深京,沪深指数和通达信板块指数有效) 转换成幅度需要乘100
+    `,
+  },
+  {
+    label: "DYNAINFO(71)",
+    detail: "买二价",
+    documentation: `
+    DYNAINFO(71)  买二价 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(72)",
+    detail: "买二量",
+    documentation: `
+    DYNAINFO(72)  买二量 如果是早盘或尾盘竞价期间,可能为匹配量,用此函数预警时请注意 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(73)",
+    detail: "卖二价",
+    documentation: `
+    DYNAINFO(73)  卖二价 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(74)",
+    detail: "卖二量",
+    documentation: `
+    DYNAINFO(74)  卖二量 如果是早盘或尾盘竞价期间,可能为匹配量,用此函数预警时请注意 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(75)",
+    detail: "买三价",
+    documentation: `
+    DYNAINFO(75)  买三价 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(76)",
+    detail: "买三量",
+    documentation: `
+    DYNAINFO(76)  买三量 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(77)",
+    detail: "卖三价",
+    documentation: `
+    DYNAINFO(77)  卖三价 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(78)",
+    detail: "卖三量",
+    documentation: `
+    DYNAINFO(78)  卖三量 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(79)",
+    detail: "买四价",
+    documentation: `
+    DYNAINFO(79)  买四价 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(80)",
+    detail: "买四量",
+    documentation: `
+    DYNAINFO(80)  买四量 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(81)",
+    detail: "卖四价",
+    documentation: `
+    DYNAINFO(81)  卖四价 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(82)",
+    detail: "卖四量",
+    documentation: `
+    DYNAINFO(82)  卖四量 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(83)",
+    detail: "买五价",
+    documentation: `
+    DYNAINFO(83)  买五价 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(84)",
+    detail: "买五量",
+    documentation: `
+    DYNAINFO(84)  买五量 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(85)",
+    detail: "卖五价",
+    documentation: `
+    DYNAINFO(85)  卖五价 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(86)",
+    detail: "卖五量",
+    documentation: `
+    DYNAINFO(86)  卖五量 个股界面的指标或TCI后台使用
+    `,
+  },
+  {
+    label: "DYNAINFO(88)",
+    detail: "封单额",
+    documentation: `
+    DYNAINFO(88) 涨停或跌停时的实时封单额 如果>0表示是涨停状态 <0表示是跌停状态 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(89)",
+    detail: "年涨停天数",
+    documentation: `
+    DYNAINFO(89) 年涨停天数(对沪深京有效)
+    `,
+  },
+  {
+    label: "DYNAINFO(90)",
+    detail: "连板天数",
+    documentation: `
+    DYNAINFO(90) 连板天数(对沪深京有效)
+    `,
+  },
+  {
+    label: "DYNAINFO(91)",
+    detail: "几天",
+    documentation: `
+    DYNAINFO(91) 几天几板的统计天数(对沪深京有效)
+    `,
+  },
+  {
+    label: "DYNAINFO(92)",
+    detail: "几板",
+    documentation: `
+    DYNAINFO(92) 几天几板的涨停天数(对沪深京有效)
+    `,
+  },
+  {
+    label: "DYNAINFO(93) ",
+    detail: "[新]昨成交额",
+    documentation: `
+    DYNAINFO(93) 昨成交额(对沪深京有效)
+    `,
+  },
+  {
+    label: "DYNAINFO(94)",
+    detail: "[新]3日成交额",
+    documentation: `
+    DYNAINFO(94) 最近3日成交额(对沪深京有效)
+    `,
+  },
+  {
+    label: "DYNAINFO(95)",
+    detail: "[新]昨封单额",
+    documentation: `
+    DYNAINFO(95) 昨封单额(对沪深京有效),若为负值,表示昨日为跌停状态
+    `,
+  },
+  {
+    label: "DYNAINFO(96)",
+    detail: "[新]前封单额",
+    documentation: `
+    DYNAINFO(96) 前日封单额(对沪深京有效),若为负值,表示前日为跌停状态
+    `,
+  },
+  {
+    label: "DYNAINFO(99)",
+    detail: "[新]主买净额",
+    documentation: `
+    DYNAINFO(99) 按主动性口径统计的净流入额(对沪深有效).报价界面行情数据,需通达信行情后台数据支持
+    `,
+  },
+  {
+    label: "DYNAINFO(100)",
+    detail: "[新]主力净额",
+    documentation: `
+    DYNAINFO(100) 按主力口径统计的净流入额(对沪深有效).报价界面行情数据,需通达信行情后台数据支持
+    `,
+  },
+  {
+    label: "DYNAINFO(101)",
+    detail: "[新]量涨速",
+    documentation: `
+    DYNAINFO(101) 量涨速(对沪深京有效),周期由涨速周期决定,一般为5分钟.报价界面行情数据,需通达信行情后台数据支持
+    `,
+  },
+  {
+    label: "DYNAINFO(102)",
+    detail: "[新]分钟换手率",
+    documentation: `
+    DYNAINFO(102) 分钟换手率(对沪深京有效),周期由涨速周期决定,一般为5分钟.报价界面行情数据,需通达信行情后台数据支持
+    `,
+  },
+  {
+    label: "DYNAINFO(103)",
+    detail: "[新]2分钟金额",
+    documentation: `
+    DYNAINFO(103) 2分钟金额(对沪深京有效).报价界面行情数据,需通达信行情后台数据支持
+    `,
+  },
+  {
+    label: "DYNAINFO(104)",
+    detail: "[新]开盘抢筹",
+    documentation: `
+    DYNAINFO(104) 开盘抢筹幅度(对沪深京有效).报价界面行情数据,需通达信行情后台数据支持
+    `,
+  },
+  {
+    label: "DYNAINFO(105)",
+    detail: "[新]委比",
+    documentation: `
+    DYNAINFO(105) 委比(对沪深京有效).报价界面行情数据,需通达信行情后台数据支持
+    `,
+  },
+  {
+    label: "DYNAINFO(106)",
+    detail: "[新]总委买量",
+    documentation: `
+    DYNAINFO(106) 当前总委买量(对沪深有效).Level2报价界面行情数据,需通达信行情后台数据支持
+    `,
+  },
+  {
+    label: "DYNAINFO(107)",
+    detail: "[新]总委卖量",
+    documentation: `
+    DYNAINFO(107) 当前总委卖量(对沪深有效).Level2报价界面行情数据,需通达信行情后台数据支持
+    `,
+  },
+  {
+    label: "DYNAINFO(108)",
+    detail: "[新]总撤买量",
+    documentation: `
+    DYNAINFO(108) 当前总撤买量(对沪深有效).Level2报价界面行情数据,需通达信行情后台数据支持
+    `,
+  },
+  {
+    label: "DYNAINFO(109)",
+    detail: "[新]总撤卖量",
+    documentation: `
+    DYNAINFO(109) 当前总撤卖量(对沪深有效).Level2报价界面行情数据,需通达信行情后台数据支持
+    `,
+  },
+  {
+    label: "DYNAINFO(110)",
+    detail: "[新]L2逐笔成交数",
+    documentation: `
+    DYNAINFO(110) L2逐笔成交数(对沪深有效).Level2报价界面行情数据,需通达信行情后台数据支持
+    `,
+  },
+  {
+    label: "DYNAINFO(111)",
+    detail: "[新]L2逐笔委托数",
+    documentation: `
+    DYNAINFO(111) L2逐笔委托数(对沪深有效).Level2报价界面行情数据,需通达信行情后台数据支持
+    `,
+  },
+  {
+    label: "MAINZSHQ",
+    detail: "[新]主要指数行情",
+    documentation: `
+    MAINZSHQ(M,N) 主要指数行情
+    M:0:当前品种所属指数 1:上证指数 2:深圳成指 3:创业板指 4:科创50指数 N:0现价 1:昨收 2:今开 3:最高 4:最低 5:成交额 6:上涨家数 7:下跌家数 8:涨幅 9:3日涨幅
+    `,
+  },
+  {
+    label: "ISBUYORDER",
+    detail: "主动性买单",
+    documentation: `
+    返回当前成交是否为主动性买单.
+    用法:
+    ISBUYORDER
+    当本笔成交为主动性买盘时,返回1,否则为0
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "SHAPE_SHORT",
+    detail: "短期形态值",
+    documentation: `
+    返回当前品种的短期形态值(1,2,..14)
+    1.倒V型反转 2.V型反转 3.W底 4.M顶 5.盘整 6.盘整后上行 7.盘整后下跌 8.上升通道 9.下降通道 10.拐头下跌 11.拐头上升 12.上行盘整 13.下跌盘整 14.其它形态
+    `,
+  },
+  {
+    label: "SHAPE_MID",
+    detail: "中期形态值",
+    documentation: `
+    返回当前品种的中期形态值(1,2,..14)
+    1.倒V型反转 2.V型反转 3.W底 4.M顶 5.盘整 6.盘整后上行 7.盘整后下跌 8.上升通道 9.下降通道 10.拐头下跌 11.拐头上升 12.上行盘整 13.下跌盘整 14.其它形态
+    `,
+  },
+  {
+    label: "SHAPE_LONG",
+    detail: "长期形态值",
+    documentation: `
+    返回当前品种的长期形态值(1,2,..14)
+    1.倒V型反转 2.V型反转 3.W底 4.M顶 5.盘整 6.盘整后上行 7.盘整后下跌 8.上升通道 9.下降通道 10.拐头下跌 11.拐头上升 12.上行盘整 13.下跌盘整 14.其它形态
+    `,
+  },
+  {
+    label: "SGN",
+    detail: "求符号值",
+    documentation: `
+    求符号值.
+    SGN(X),当X>0,X=0,X<0分别返回1,0,-1
+    `,
+  },
+  {
+    label: "ORDERBUY",
+    detail: "委托买入",
+    documentation: `
+    委托买入.此函数只适用于服务器端特定版本的策略交易模式下.
+    用法:
+    ORDERBUY(condition, volumetype, volume, pricetype, price).
+    `,
+  },
+  {
+    label: "ORDERSELL",
+    detail: "委托卖出",
+    documentation: `
+    委托卖出.此函数只适用于服务器端特定版本的策略交易模式下.
+    用法:
+    ORDERSELL(condition, volumetype, volume, pricetype, price).
+    `,
+  },
+  {
+    label: "CANSELLGP",
+    detail: "可卖数量",
+    documentation: `
+    返回可卖数量.此函数只适用于服务器端特定版本的策略交易模式下.
+    用法:
+    CANSELL
+    `,
+  },
+  {
+    label: "CANUSEMONEY",
+    detail: "可用资金",
+    documentation: `
+    返回可用资金.此函数只适用于服务器端特定版本的策略交易模式下.
+    用法:
+    CANUSE
+    `,
+  },
+  {
+    label: "BUY",
+    detail: "买入开仓",
+    documentation: `
+    多头建仓(买入开仓).
+    参数1为触发条件,参数2为标记放置位置.此函数只适用于特定版本交易模式下.
+    例如:
+    BUY(CROSS(A,B),LOW),当A上穿B时,在LOW处画标记,同时突出提示或直接下单,如果LOW改为DRAWNULL,就不画标记.(分时图上不支持)
+    `,
+  },
+  {
+    label: "SELL",
+    detail: "卖出平仓",
+    documentation: `
+    多头平仓(卖出平仓).
+    参数1为触发条件,参数2为标记放置位置.此函数只适用于特定版本交易模式下.
+    例如:
+    SELL(CROSS(A,B),HIGH),当A上穿B时,在HIGH处画标记,同时突出提示或直接下单,如果HIGH改为DRAWNULL,就不画标记.(分时图上不支持)
+    `,
+  },
+  {
+    label: "SELLSHORT",
+    detail: "卖出开仓",
+    documentation: `
+    空头建仓(卖出开仓).
+    参数1为触发条件,参数2为标记放置位置.此函数只适用于特定版本交易模式下.
+    例如:
+    SELLSHORT(CROSS(A,B),HIGH),当A上穿B时,在HIGH处画标记,同时突出提示或直接下单,如果HIGH改为DRAWNULL,就不画标记.(分时图上不支持)
+    `,
+  },
+  {
+    label: "BUYSHORT",
+    detail: "买入平仓",
+    documentation: `
+    空头平仓(买入平仓).
+    参数1为触发条件,参数2为标记放置位置.此函数只适用于特定版本交易模式下.
+    例如:
+    BUYSHORT(CROSS(A,B),LOW),当A上穿B时,在LOW处画标记,同时突出提示或直接下单,如果LOW改为DRAWNULL,就不画标记.(分时图上不支持)
+    `,
+  },
+  {
+    label: "BUYSHORT_BUY",
+    detail: "先平空仓再开多仓",
+    documentation: `
+    先平空仓再开多仓.
+    参数1为触发条件,参数2为标记放置位置.此函数只适用于特定版本交易模式下.
+    例如:
+    BUYSHORT_BUY(CROSS(A,B),LOW),当A上穿B时,在LOW处画标记,同时突出提示或直接下单,如果LOW改为DRAWNULL,就不画标记.(分时图上不支持)
+    独立池时,反手时平掉所有的原来仓位
+    `,
+  },
+  {
+    label: "SELL_SELLSHORT",
+    detail: "先平多仓再开空仓",
+    documentation: `
+    先平多仓再开空仓.
+    参数1为触发条件,参数2为标记放置位置.此函数只适用于特定版本交易模式下.
+    例如:
+    SELL_SELLSHORT(CROSS(A,B),HIGH),当A上穿B时,在HIGH处画标记,同时突出提示或直接下单,如果HIGH改为DRAWNULL,就不画标记.(分时图上不支持)
+    独立池时,反手时平掉所有的原来仓位
+    `,
+  },
+  {
+    label: "CLOSEALLD",
+    detail: "清多头仓",
+    documentation: `
+    平掉所有多头仓位.
+    参数1为触发条件,参数2为标记放置位置.此函数只适用于特定版本交易模式下.
+    例如:
+    CLOSEALLD(CROSS(A,B),HIGH),当A上穿B时,在HIGH处画标记,同时突出提示或直接下单,如果HIGH改为DRAWNULL,就不画标记.(分时图上不支持)
+    `,
+  },
+  {
+    label: "CLOSEALLK",
+    detail: "清空头仓",
+    documentation: `
+    平掉所有空头仓位.
+    参数1为触发条件,参数2为标记放置位置.此函数只适用于特定版本交易模式下.
+    例如:
+    CLOSEALLK(CROSS(A,B),LOW),当A上穿B时,在LOW处画标记,同时突出提示或直接下单,如果LOW改为DRAWNULL,就不画标记.(分时图上不支持)
+    `,
+  },
+  {
+    label: "AUTOFILTER",
+    detail: "自动过滤交易信号",
+    documentation: `
+    对交易信号(BUY,SELL,SELLSHORT,BUYSHORT,BUYSHORT_BUY,SELL_SELLSHORT,CLOSEALLD,CLOSEALLK等)按照开平配对原则过滤.
+    1.连续的同方向指令只有第一个有效,其他的将被过滤;
+    2.交易信号必须配对出现(比如前面已经有了买开指令,则后面只允许出现卖平指令,其他的指令都被过滤掉)
+    注:使用AUTOFILTER后,就不要再使用其它的信号过滤方式了.此函数只适用于特定版本交易模式下.
+    `,
+  },
+  {
+    label: "ISLASTBUY",
+    detail: "上个信号是否买入开仓",
+    documentation: `
+    上个信号是否买入开仓
+    此函数只适用于特定版本交易模式下.(此函数会逐K线计算,请勿与未来函数同时使用)
+    `,
+  },
+  {
+    label: "ISLASTSELL",
+    detail: "上个信号是否卖出平仓",
+    documentation: `
+    上个信号是否卖出平仓
+    此函数只适用于特定版本交易模式下.(此函数会逐K线计算,请勿与未来函数同时使用)
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
+  {
+    label: "BETAVALUE",
+    detail: "贝塔系数",
+    documentation: `
+    返回当前品种的贝塔系数
+    `,
+  },
 ];
