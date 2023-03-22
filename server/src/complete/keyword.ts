@@ -3379,4 +3379,158 @@ export const keywords = [
     FINANCE(91)  最近股权激励预案日离现在的自然日天数,仅用于PC客户端
     `,
   },
+  {
+    label: "SAFESCORE",
+    detail: "安全分",
+    documentation: `
+    SAFESCORE  安全分(0-100),通达信扫雷宝数据,仅供参考
+    `,
+  },
+  {
+    label: "DYNAINFO(3)",
+    detail: "昨收盘价",
+    documentation: `
+    DYNAINFO(3)  昨收盘价 即时行情数据 期货和期权品种为昨结算价
+    `,
+  },
+  {
+    label: "DYNAINFO(4)",
+    detail: "开盘价",
+    documentation: `
+    DYNAINFO(4)  开盘价 即时行情数据 在开盘前,值为0,在使用时需要判断(否则分时指标时会影响纵坐标轴)
+    `,
+  },
+  {
+    label: "DYNAINFO(5)",
+    detail: "最高价",
+    documentation: `
+    DYNAINFO(5)  最高价 即时行情数据 在开盘前,值为0,在使用时需要判断(否则分时指标时会影响纵坐标轴)
+    `,
+  },
+  {
+    label: "DYNAINFO(6)",
+    detail: "最低价",
+    documentation: `
+    DYNAINFO(6)  最低价 即时行情数据 在开盘前,值为0,在使用时需要判断(否则分时指标时会影响纵坐标轴)
+    `,
+  },
+  {
+    label: "DYNAINFO(7)",
+    detail: "现价",
+    documentation: `
+    DYNAINFO(7)  现价 即时行情数据 在开盘前,值为0,在使用时需要判断(否则分时指标时会影响纵坐标轴)
+    `,
+  },
+  {
+    label: "DYNAINFO(8)",
+    detail: "总量",
+    documentation: `
+    DYNAINFO(8) 总量 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(9)",
+    detail: "现量",
+    documentation: `
+    DYNAINFO(9) 现量 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(10)",
+    detail: "总金额",
+    documentation: `
+    DYNAINFO(10)  总金额 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(11)",
+    detail: "均价",
+    documentation: `
+    DYNAINFO(11) 均价 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(12)",
+    detail: "日涨跌",
+    documentation: `
+    DYNAINFO(12) 日涨跌 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(13)",
+    detail: "振幅",
+    documentation: `
+    DYNAINFO(13) 振幅 即时行情数据 转换成幅度需要乘100
+    `,
+  },
+  {
+    label: "DYNAINFO(14)",
+    detail: "涨幅",
+    documentation: `
+    DYNAINFO(14) 涨幅 即时行情数据(沪深京早盘竞价期间使用匹配价的涨幅) 转换成幅度需要乘100
+    `,
+  },
+  {
+    label: "DYNAINFO(15)",
+    detail: "开盘金额",
+    documentation: `
+    DYNAINFO(15) 开盘时的成交金额 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(16)",
+    detail: "前5日每分钟均量",
+    documentation: `
+    DYNAINFO(16) 前5日每分钟均量 盘中不变化
+    `,
+  },
+  {
+    label: "DYNAINFO(17)",
+    detail: "量比",
+    documentation: `
+    DYNAINFO(17) 量比 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(18)",
+    detail: "上涨家数",
+    documentation: `
+    DYNAINFO(18) 上涨家数(对沪深指数和通达信板块指数有效) 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(19)",
+    detail: "下跌家数",
+    documentation: `
+    DYNAINFO(19) 下跌家数(对沪深指数和通达信板块指数有效) 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(20)",
+    detail: "买价(即买一价)",
+    documentation: `
+    DYNAINFO(20)  最新买价 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(21)",
+    detail: "卖价(即卖一价)",
+    documentation: `
+    DYNAINFO(21)  最新卖价 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(22)",
+    detail: "内盘/板块指数跌停数",
+    documentation: `
+    DYNAINFO(22) 返回内盘,板块指数则返回跌停家数 即时行情数据
+    `,
+  },
+  {
+    label: "DYNAINFO(23)",
+    detail: "外盘/板块指数涨停数",
+    documentation: `
+    DYNAINFO(23) 返回外盘,板块指数则返回涨停家数 即时行情数据
+    `,
+  },
 ];
