@@ -4219,437 +4219,598 @@ export const keywords = [
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "ISLASTSELLSHORT",
+    detail: "上个信号是否卖出开仓",
     documentation: `
-    返回当前品种的贝塔系数
+    上个信号是否卖出开仓
+    此函数只适用于特定版本交易模式下.(此函数会逐K线计算,请勿与未来函数同时使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "ISLASTBUYSHORT",
+    detail: "上个信号是否买入平仓",
     documentation: `
-    返回当前品种的贝塔系数
+    上个信号是否买入平仓
+    此函数只适用于特定版本交易模式下.(此函数会逐K线计算,请勿与未来函数同时使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "LASTSIGNAL",
+    detail: "上一次的信号类型",
     documentation: `
-    返回当前品种的贝塔系数
+    上一次的信号类型
+    1:买入开仓 2:卖出平仓 3:卖出开仓 4:买入平仓 7:清多头仓 8:清空头仓
+    此函数只适用于特定版本交易模式下.(此函数会逐K线计算,请勿与未来函数同时使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "BUYPRICE",
+    detail: "买入开仓信号时的价格",
     documentation: `
-    返回当前品种的贝塔系数
+    买入开仓信号时的价格,当时数据品种的K线的收盘价
+    此函数只适用于特定版本交易模式下.(此函数会逐K线计算,请勿与未来函数同时使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "BUYBARS",
+    detail: "买入开仓信号距离当前k线数",
     documentation: `
-    返回当前品种的贝塔系数
+    买入开仓信号距离当前k线数
+    此函数只适用于特定版本交易模式下.(此函数会逐K线计算,请勿与未来函数同时使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "SELLSHORTPRICE",
+    detail: "卖出开仓信号时的价格",
     documentation: `
-    返回当前品种的贝塔系数
+    卖出开仓信号时的价格,当时数据品种的K线的收盘价
+    此函数只适用于特定版本交易模式下.(此函数会逐K线计算,请勿与未来函数同时使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "SELLSHORTBARS",
+    detail: "卖出开仓信号距离当前k线数",
     documentation: `
-    返回当前品种的贝塔系数
+    卖出开仓信号距离当前k线数
+    此函数只适用于特定版本交易模式下.(此函数会逐K线计算,请勿与未来函数同时使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "SELLPRICE",
+    detail: "卖出平仓信号时的价格",
     documentation: `
-    返回当前品种的贝塔系数
+    卖出平仓信号时的价格,当时数据品种的K线的收盘价
+    此函数只适用于特定版本交易模式下.(此函数会逐K线计算,请勿与未来函数同时使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "SELLBARS",
+    detail: "卖出平仓信号距离当前K线数",
     documentation: `
-    返回当前品种的贝塔系数
+    卖出平仓信号距离当前K线数
+    此函数只适用于特定版本交易模式下.(此函数会逐K线计算,请勿与未来函数同时使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "BUYSHORTPRICE",
+    detail: "买入平仓信号时的价格",
     documentation: `
-    返回当前品种的贝塔系数
+    买入平仓信号时的价格,当时数据品种的K线的收盘价
+    此函数只适用于特定版本交易模式下.(此函数会逐K线计算,请勿与未来函数同时使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "BUYSHORTBARS",
+    detail: "买入平仓信号距离当前K线数",
     documentation: `
-    返回当前品种的贝塔系数
+    买入平仓信号距离当前K线数
+    此函数只适用于特定版本交易模式下.(此函数会逐K线计算,请勿与未来函数同时使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "BUYPOSITION",
+    detail: "买持仓",
     documentation: `
-    返回当前品种的贝塔系数
+    买持仓的数量(期货),针对当前品种
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "TODAYBUY",
+    detail: "今买持仓",
     documentation: `
-    返回当前品种的贝塔系数
+    今日买入持仓的数量(期货),针对当前品种
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "BUYAVGPRICE",
+    detail: "买均价",
     documentation: `
-    返回当前品种的贝塔系数
+    买持仓的持仓均价(期货),针对当前品种
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "BUYPROFITLOSS",
+    detail: "买持仓盈利",
     documentation: `
-    返回当前品种的贝塔系数
+    买持仓的浮动盈亏(期货),针对当前品种
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "SELLPOSITION",
+    detail: "卖持仓",
     documentation: `
-    返回当前品种的贝塔系数
+    卖持仓的数量(期货),针对当前品种
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "TODAYSELL",
+    detail: "今卖持仓",
     documentation: `
-    返回当前品种的贝塔系数
+    今日卖出持仓的数量(期货),针对当前品种
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "SELLAVGPRICE",
+    detail: "卖均价",
     documentation: `
-    返回当前品种的贝塔系数
+    卖持仓的持仓均价(期货),针对当前品种
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "SELLPROFITLOSS",
+    detail: "卖持仓盈利",
     documentation: `
-    返回当前品种的贝塔系数
+    卖持仓的浮动盈亏(期货),针对当前品种
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "TOTALPOSITION",
+    detail: "总持仓",
     documentation: `
-    返回当前品种的贝塔系数
+    总持仓,针对当前品种
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "CANUSEPOSITION",
+    detail: "总可用持仓",
     documentation: `
-    返回当前品种的贝塔系数
+    总可用的持仓,针对当前品种
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "TOTALAVGPRICE",
+    detail: "总持仓均价",
     documentation: `
-    返回当前品种的贝塔系数
+    总持仓均价,针对当前品种
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "FREEMONEY",
+    detail: "总可用资金量",
     documentation: `
-    返回当前品种的贝塔系数
+    总可用资金量,针对当前交易帐户
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "CURRENTQUITY",
+    detail: "动态权益",
     documentation: `
-    返回当前品种的贝塔系数
+    动态权益(期货),针对当前交易帐户
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "PREVIOUSEQUITY",
+    detail: "昨日结存权益",
     documentation: `
-    返回当前品种的贝塔系数
+    昨日结存的权益(期货),针对当前交易帐户
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "PROFITLOSS",
+    detail: "持仓盈亏",
     documentation: `
-    返回当前品种的贝塔系数
+    持仓盈亏(期货),针对当前交易帐户的当前品种
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "CLOSEPROFIT",
+    detail: "平仓盈亏",
     documentation: `
-    返回当前品种的贝塔系数
+    平仓盈亏(期货),针对当前交易帐户的当前品种
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "TOTALMARGIN",
+    detail: "持仓保证金",
     documentation: `
-    返回当前品种的贝塔系数
+    持仓保证金(期货),针对当前交易帐户
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "FEERATE",
+    detail: "合约手续费",
     documentation: `
-    返回当前品种的贝塔系数
+    合约手续费比例(百分比),(具体交易策略中设置)
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "MARGINRATE",
+    detail: "合约保证金",
     documentation: `
-    返回当前品种的贝塔系数
+    合约保证金比例(百分比),(具体交易策略中设置)
+    (两种情况下支持:1.本地策略交易时,2.程序交易评测时配合交易函数使用)
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "EXTERNSTR",
+    detail: "引用自定义外部字符串数据",
     documentation: `
-    返回当前品种的贝塔系数
+    EXTERNSTR(TYPE,ID)
+    TYPE为1表示是系统定义数据(需要通达信官方提供,需要[专业财务数据]下载,支持的ID为10001以上,详见自定义数据管理器),
+    TYPE为0表示是自定义外部数据,读取signals目录下面的的extern_user.txt,请用自定义数据管理器来维护
+    extern_user.txt为文本结构,如下 1|600717|1|好股|0.33
+    市场(0:深圳,1:上海,2:北京)|品种代码|数据号|文字串|数值 如果是导出格式,则不需要数据号
+
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "EXTERNVALUE",
+    detail: "引用自定义外部数值数据",
     documentation: `
-    返回当前品种的贝塔系数
+    EXTERNVALUE(TYPE,ID),用法同EXTERNSTR类似
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "SIGNALS_SYS",
+    detail: "引用自定义序列数据(系统)",
     documentation: `
-    返回当前品种的贝塔系数
+    引用自定义序列数据(需要通达信官方提供,需要[专业财务数据]下载,支持的ID为20001以上,详见自定义数据管理器)
+    SIGNALS_SYS(ID,TYPE),TYPE:1表示做平滑处理,没有自定义数据的周期返回上一周期的值;0表示不做平滑处理;2表示没有数据则为0.
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "SIGNALS_QS",
+    detail: "引用自定义序列数据(券商)",
     documentation: `
-    返回当前品种的贝塔系数
+    引用自定义序列数据(券商).
+    SIGNALS_QS(ID,TYPE),TYPE:1表示做平滑处理,没有自定义数据的周期返回上一周期的值;0表示不做平滑处理;2表示没有数据则为0.
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "SIGNALS_USER",
+    detail: "引用自定义序列数据",
     documentation: `
-    返回当前品种的贝塔系数
+    引用自定义序列数据.
+    读取个人目录下的signals目录下面的[signals_user_?]目录,请用自定义数据管理器来维护.
+    SIGNALS_USER(ID,TYPE):表示读当前品种的ID数据号的序列数据(自定义数据需按日期从小到大排序),
+    TYPE:1表示做平滑处理,没有自定义数据的周期返回上一周期的值;0表示不做平滑处理;2表示没有数据则为0.
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "EXTDATA_USER",
+    detail: "引用扩展数据",
     documentation: `
-    返回当前品种的贝塔系数
+    引用扩展数据.
+    请用扩展数据管理器来设置和刷新数据.
+    EXTDATA_USER(N,TYPE),N取(1-100),表示读当前品种的N号扩展序列数据,TYPE:1表示做平滑处理,没有数据的周期返回上一周期的值;0表示不做平滑处理;2表示没有数据则为0.
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "FINVALUE",
+    detail: "专业财务数据(序列)",
     documentation: `
-    返回当前品种的贝塔系数
+    引用专业财务数据.如果指标支持云数据函数(用于选股除外),则不需要[专业财务数据]下载,该函数只适用于沪深京市场.
+    FINVALUE(ID),ID为数据编号
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "FINONE",
+    detail: "专业财务数据(指定日期)",
     documentation: `
-    返回当前品种的贝塔系数
+    引用指定年和月日的某类型的财务数据.如果指标支持云数据函数(用于选股除外),则不需要[专业财务数据]下载,该函数只适用于沪深京市场.
+    FINONE(ID,Y,MMDD),ID为数据编号,Y和MMDD表示年和月日.
+    如果Y和MMDD都为0,表示最新的财报;
+    如果Y为0,MMDD为小于300的数字,表示最近一期向前推MMDD期的数据,如果是331,630,930,1231这些,表示最近一期的对应季报的数据;
+    如果MMDD为0,Y为一数字,表示最近一期向前推Y年的同期数据;
+    季报分界点为:0331,0630,0930,1231
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "GPJYVALUE",
+    detail: "股票交易类数据(序列)",
     documentation: `
-    返回当前品种的贝塔系数
+    引用股票交易类数据.如果指标支持云数据函数(用于选股除外),则不需要[专业财务数据]下载,该函数只适用于沪深京市场,不支持获取太早时间的数据.
+    GPJYVALUE(ID,N,TYPE),ID为数据编号,N表示第几个数据(取1或2),TYPE:为1表示做平滑处理,没有数据的周期返回上一周期的值;为0表示不做平滑处理;2表示没有数据则为0.
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "GPJYONE",
+    detail: "股票交易类数据(指定日期)",
     documentation: `
-    返回当前品种的贝塔系数
+    引用某天某种类型的股票交易类数据.如果指标支持云数据函数(用于选股除外),则不需要[专业财务数据]下载,该函数只适用于沪深京市场,不支持获取太早时间的数据.
+    GPJYONE(ID,N,Y,MMDD),ID为数据编号,N表示第几个数据(取1或2),Y和MMDD表示年和月日.
+    如果Y为0,MMDD为0,表示最新数据,MMDD为1,2,3...,表示倒数第2,3,4...个数据
+
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "BKJYVALUE",
+    detail: "板块交易类数据(序列)",
     documentation: `
-    返回当前品种的贝塔系数
+    引用板块交易类数据.如果指标支持云数据函数(用于选股除外),则不需要[专业财务数据]下载,该函数只适用于沪深京市场.
+    BKJYVALUE(ID,N,TYPE),ID为数据编号,N表示第几个数据(取1或2),TYPE:为1表示做平滑处理,没有数据的周期返回上一周期的值;为0表示不做平滑处理;2表示没有数据则为0.
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "BKJYONE",
+    detail: "板块交易类数据(指定日期)",
     documentation: `
-    返回当前品种的贝塔系数
+    引用某天某种类型的板块交易类数据.如果指标支持云数据函数(用于选股除外),则不需要[专业财务数据]下载,该函数只适用于沪深京市场.
+    BKJYONE(ID,N,Y,MMDD),ID为数据编号,N表示第几个数据(取1或2),Y和MMDD表示年和月日.
+    如果Y为0,MMDD为0,表示最新数据,MMDD为1,2,3...,表示倒数第2,3,4...个数据
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "SCJYVALUE",
+    detail: "市场交易类数据(序列)",
     documentation: `
-    返回当前品种的贝塔系数
+    引用市场总的交易类数据.如果指标支持云数据函数(用于选股除外),则不需要[专业财务数据]下载,该函数只适用于沪深京市场.
+    SCJYVALUE(ID,N,TYPE),ID为数据编号,N表示第几个数据(取1或2),TYPE:为1表示做平滑处理,没有数据的周期返回上一周期的值;为0表示不做平滑处理;2表示没有数据则为0.
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "SCJYONE",
+    detail: "市场交易类数据(指定日期)",
     documentation: `
-    返回当前品种的贝塔系数
+    引用某天某种类型的市场总的交易类数据.如果指标支持云数据函数(用于选股除外),则不需要[专业财务数据]下载,该函数只适用于沪深京市场.
+    SCJYONE(ID,N,Y,MMDD),ID为数据编号,N表示第几个数据(取1或2),Y和MMDD表示年和月日.
+    如果Y为0,MMDD为0,表示最新数据,MMDD为1,2,3...,表示倒数第2,3,4...个数据
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "GPONEDAT",
+    detail: "股票的单个数据(非序列)",
     documentation: `
-    返回当前品种的贝塔系数
+    引用股票的某种数据,该函数只适用于沪深京市场.
+    GPONEDAT(ID),ID为数据编号
     `,
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
   },
   {
-    label: "BETAVALUE",
-    detail: "贝塔系数",
+    label: "+",
+    detail: "加",
     documentation: `
-    返回当前品种的贝塔系数
+    例如: X + Y
     `,
+    data: {
+      type: "operator",
+    },
+  },
+  {
+    label: "+",
+    detail: "加",
+    documentation: `
+    例如: X + Y
+    `,
+    data: {
+      type: "operator",
+    },
+  },
+  {
+    label: "+",
+    detail: "加",
+    documentation: `
+    例如: X + Y
+    `,
+    data: {
+      type: "operator",
+    },
+  },
+  {
+    label: "+",
+    detail: "加",
+    documentation: `
+    例如: X + Y
+    `,
+    data: {
+      type: "operator",
+    },
+  },
+  {
+    label: "+",
+    detail: "加",
+    documentation: `
+    例如: X + Y
+    `,
+    data: {
+      type: "operator",
+    },
+  },
+  {
+    label: "+",
+    detail: "加",
+    documentation: `
+    例如: X + Y
+    `,
+    data: {
+      type: "operator",
+    },
   },
 ];
