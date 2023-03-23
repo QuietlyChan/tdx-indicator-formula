@@ -4604,60 +4604,60 @@ export const keywords = [
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: "-",
+    detail: "减",
     documentation: `
-    例如: X + Y
+    例如: X - Y
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: "*",
+    detail: "乘",
     documentation: `
-    例如: X + Y
+    例如: X * Y
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: "/",
+    detail: "除",
     documentation: `
-    例如: X + Y
+    例如: X / Y
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: "<",
+    detail: "小于",
     documentation: `
-    例如: X + Y
+    例如: X < Y
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: ">",
+    detail: "大于",
     documentation: `
-    例如: X + Y
+    例如: X > Y
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: "<=",
+    detail: "小于等于",
     documentation: `
-    例如: X + Y
+    例如: X <= Y
     `,
     data: {
       type: "operator",
