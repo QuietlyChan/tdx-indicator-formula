@@ -4664,153 +4664,660 @@ export const keywords = [
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: ">=",
+    detail: "大于等于",
     documentation: `
-    例如: X + Y
+    例如: X >= Y
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: "=",
+    detail: "等于",
     documentation: `
-    例如: X + Y
+    例如: X = Y
+    注意:看到的相等,数值不一定相等,可按需处理精度,比如:
+    INTPART(X/MINDIFF) = INTPART(Y/MINDIFF).
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: "!=",
+    detail: "不等于",
     documentation: `
-    例如: X + Y
+    例如: X != Y
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: "<>",
+    detail: "不等于",
     documentation: `
-    例如: X + Y
+    与!=的用法一样
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: "{",
+    detail: "注释符号",
     documentation: `
-    例如: X + Y
+    例如 {注释部分},注:注释中不能再加注释
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: "AND",
+    detail: "并且",
     documentation: `
-    例如: X + Y
+    例如: X>Y AND Y>Z
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: "OR",
+    detail: "或者",
     documentation: `
-    例如: X + Y
+    例如: X>Y OR Y>Z
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: "&&",
+    detail: "并且",
     documentation: `
-    例如: X + Y
+    与AND的用法一样
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: "||",
+    detail: "或者",
     documentation: `
-    例如: X + Y
+    与OR的用法一致
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: "$",
+    detail: "引用特定数据",
     documentation: `
-    例如: X + Y
+    例如:"000014$CLOSE",表示取000014的收盘价,注意加入双引号.
+    可在前面加SZ(深市),SH(沪市),BJ(京市),或市场_,,"SZ000001$CLOSE"表示平安银行,"47_IFL8$CLOSE"表示沪深主力合约,
+
+    注意:引用品种的对应周期的数据必须要先下载到本地
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: ":",
+    detail: "输出",
     documentation: `
-    例如: X + Y
+    例如: 输出:CLOSE+OPEN
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: ":=",
+    detail: "赋值",
     documentation: `
-    例如: X + Y
+    例如: 变量1:=HIGH
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: '"',
+    detail: "双引号",
     documentation: `
-    例如: X + Y
+    例如:"000014$CLOSE",表示取000014的收盘价,$后支持OPEN,HIGH,LOW,CLOSE,VOL,AMOUNT,VOLINSTK等
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: ".",
+    detail: "引用指标输出",
     documentation: `
-    例如: X + Y
+    例如: KDJ.K 表示输入KDJ指标的K输出值(公式名不支持带运算符,比如-号)
     `,
     data: {
       type: "operator",
     },
   },
   {
-    label: "+",
-    detail: "加",
+    label: ";",
+    detail: "分号",
     documentation: `
-    例如: X + Y
+    例如: A:=CLOSE;
     `,
     data: {
       type: "operator",
     },
+  },
+  {
+    label: "#",
+    detail: "跨周期引用符号",
+    documentation: `
+    #后可用MIN1,MIN5,MIN15,MIN30,MIN60,DAY,WEEK,MONTH,SEASON,YEAR
+
+    例如:TMP1:=CLOSE#WEEK;
+    {非指标引用时只可用于OPEN,HIGH,LOW,CLOSE,VOL,AMOUNT,VOLINSTK等,当前周期不支持多秒线,多分钟线和多日线,并且引用周期必须要高于当前周期,5秒线只支持引用1分钟线和5分钟线,周期数据转换得到}
+    TMP2:=KDJ.K#WEEK;
+    {跨周期指标引用,引用品种的对应周期的数据必须要先下载到本地}
+    跨周期指标引用不支持带参数
+    提示:跨周期时,可能会引用到未来数据
+    `,
+    data: {
+      type: "operator",
+    },
+  },
+  {
+    label: "MIN1",
+    detail: "引用1分钟线",
+    documentation: `
+    用于跨周期1分钟线引用
+    `,
+    data: {
+      type: "quote",
+    },
+  },
+  {
+    label: "MIN5",
+    detail: "引用5分钟线",
+    documentation: `
+    用于跨周期5分钟线引用
+    `,
+    data: {
+      type: "quote",
+    },
+  },
+  {
+    label: "MIN15",
+    detail: "引用15分钟线",
+    documentation: `
+    用于跨周期15分钟线引用
+    `,
+    data: {
+      type: "quote",
+    },
+  },
+  {
+    label: "MIN30",
+    detail: "引用30分钟线",
+    documentation: `
+    用于跨周期30分钟线引用
+    `,
+    data: {
+      type: "quote",
+    },
+  },
+  {
+    label: "MIN60",
+    detail: "引用60分钟线",
+    documentation: `
+    用于跨周期60分钟线引用
+    `,
+    data: {
+      type: "quote",
+    },
+  },
+  {
+    label: "WEEK",
+    detail: "引用周线",
+    documentation: `
+    用于跨周期周线引用,注:DAY,MONTH,YEAR等也支持引用
+    `,
+    data: {
+      type: "quote",
+    },
+  },
+  {
+    label: "SEASON",
+    detail: "引用季线",
+    documentation: `
+    用于跨周期季线引用,注:DAY,MONTH,YEAR等也支持引用
+    `,
+    data: {
+      type: "quote",
+    },
+  },
+  {
+    label: "RGBX",
+    detail: "自定义色",
+    documentation: `
+    格式为RGBX+“RRGGBB”：RR、GG、BB表示红色、绿色和的蓝色分量，每种颜色的取值范围是00-FF，采用了16进制。
+    例如：MA5:MA(CLOSE,5)，RGBXFFFF00表示纯红色与纯绿色的混合色：RGBX008080表示淡蓝色和淡绿色的混合色。
+    `,
+  },
+  {
+    label: "COLOR",
+    detail: "自定义色",
+    documentation: `
+    格式为COLOR+“BBGGRR”：BB、GG、RR表示蓝色、绿色和红色的分量，每种颜色的取值范围是00-FF，采用了16进制。
+    例如：MA5:MA(CLOSE,5)，COLOR00FFFF表示纯红色与纯绿色的混合色：COLOR808000表示淡蓝色和淡绿色的混合色。
+    `,
+  },
+  {
+    label: "COLORBLACK",
+    detail: "黑色",
+    documentation: `
+    画黑色
+    `,
+  },
+  {
+    label: "COLORBLUE",
+    detail: "蓝色",
+    documentation: `
+    画蓝色
+    `,
+  },
+  {
+    label: "COLORGREEN",
+    detail: "绿色",
+    documentation: `
+    画绿色
+    `,
+  },
+  {
+    label: "COLORCYAN",
+    detail: "青色",
+    documentation: `
+    画青色
+    `,
+  },
+  {
+    label: "COLORRED",
+    detail: "红色",
+    documentation: `
+    画红色
+    `,
+  },
+  {
+    label: "COLORMAGENTA",
+    detail: "洋红色",
+    documentation: `
+    画洋红色
+    `,
+  },
+  {
+    label: "COLORBROWN",
+    detail: "棕色",
+    documentation: `
+    画棕色
+    `,
+  },
+  {
+    label: "COLORLIGRAY",
+    detail: "淡灰色",
+    documentation: `
+    画淡灰色
+    `,
+  },
+  {
+    label: "COLORGRAY",
+    detail: "深灰色",
+    documentation: `
+    画深灰色
+    `,
+  },
+  {
+    label: "COLORLIBLUE",
+    detail: "淡蓝色",
+    documentation: `
+    画淡蓝色
+    `,
+  },
+  {
+    label: "COLORLIGREEN",
+    detail: "淡绿色",
+    documentation: `
+    画淡绿色
+    `,
+  },
+  {
+    label: "COLORLICYAN",
+    detail: "淡青色",
+    documentation: `
+    画淡青色
+    `,
+  },
+  {
+    label: "COLORLIRED",
+    detail: "淡红色",
+    documentation: `
+    画淡红色
+    `,
+  },
+  {
+    label: "COLORLIMAGENTA",
+    detail: "淡洋红色",
+    documentation: `
+    画淡洋红色
+    `,
+  },
+  {
+    label: "COLORYELLOW",
+    detail: "黄色",
+    documentation: `
+    画黄色
+    `,
+  },
+  {
+    label: "COLORWHITE",
+    detail: "白色",
+    documentation: `
+    画白色
+    `,
+  },
+  {
+    label: "LINETHICK",
+    detail: "线形粗细",
+    documentation: `
+    格式“LINETHICK+(1-9)”；
+    参数的取值范围在1—9之间，“LINETHICK1”表示最细的线，而“LINETHICK9”表示最粗的线；
+    `,
+  },
+  {
+    label: "DRAWABOVE",
+    detail: "显示在位置之上",
+    documentation: `
+    显示在位置之上,对于DRAWTEXT和DRAWNUMBER等函数有用,放在语句的最后面(不能与LINETHICK等函数共用),比如:
+    DRAWNUMBER(CLOSE>OPEN,HIGH,CLOSE),DRAWABOVE;
+    `,
+  },
+  {
+    label: "NOFRAME",
+    detail: "不显示边框",
+    documentation: `
+    不显示边框,对于DRAWRECTREL等函数有用,放在语句的最后面
+    `,
+  },
+  {
+    label: "STICK",
+    detail: "柱状线",
+    documentation: `
+    画柱状线
+    `,
+  },
+  {
+    label: "COLORSTICK",
+    detail: "彩色柱状线",
+    documentation: `
+    彩色柱状线。数据为正数时，向上画红色柱状线，反之向下画绿线
+    `,
+  },
+  {
+    label: "VOLSTICK",
+    detail: "成交量柱状线",
+    documentation: `
+    成交量柱状线。当股价上涨时显示红色空心柱，反之则显示绿色实心柱
+    `,
+  },
+  {
+    label: "LINESTICK",
+    detail: "同时画出柱状线和指标线",
+    documentation: `
+    同时画出柱状线和指标线
+    `,
+  },
+  {
+    label: "CROSSDOT",
+    detail: "小叉线",
+    documentation: `
+    画小叉线
+    `,
+  },
+  {
+    label: "CIRCLEDOT",
+    detail: "小圆圈线",
+    documentation: `
+    画小圆圈线
+    `,
+  },
+  {
+    label: "POINTDOT",
+    detail: "小圆点线",
+    documentation: `
+    画小圆点线
+    `,
+  },
+  {
+    label: "DOTLINE",
+    detail: "虚线",
+    documentation: `
+    画虚线
+    `,
+  },
+  {
+    label: "NODRAW",
+    detail: "空线条",
+    documentation: `
+    不画该线
+    `,
+  },
+  {
+    label: "PLAYSOUND1",
+    detail: "播放1号",
+    documentation: `
+    播放1号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND2",
+    detail: "播放2号",
+    documentation: `
+    播放2号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND3",
+    detail: "播放3号",
+    documentation: `
+    播放3号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND4",
+    detail: "播放4号",
+    documentation: `
+    播放4号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND5",
+    detail: "播放5号",
+    documentation: `
+    播放5号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND6",
+    detail: "播放6号",
+    documentation: `
+    播放6号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND7",
+    detail: "播放7号",
+    documentation: `
+    播放7号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND8",
+    detail: "播放8号",
+    documentation: `
+    播放8号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND9",
+    detail: "播放9号",
+    documentation: `
+    播放9号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND10",
+    detail: "播放10号",
+    documentation: `
+    播放10号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND11",
+    detail: "播放11号",
+    documentation: `
+    播放11号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND12",
+    detail: "播放12号",
+    documentation: `
+    播放12号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND13",
+    detail: "播放13号",
+    documentation: `
+    播放13号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND14",
+    detail: "播放14号",
+    documentation: `
+    播放14号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND15",
+    detail: "播放15号",
+    documentation: `
+    播放15号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND16",
+    detail: "播放16号",
+    documentation: `
+    播放16号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND17",
+    detail: "播放17号",
+    documentation: `
+    播放17号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND18",
+    detail: "播放18号",
+    documentation: `
+    播放18号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND19",
+    detail: "播放19号",
+    documentation: `
+    播放19号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "PLAYSOUND20",
+    detail: "播放20号",
+    documentation: `
+    播放20号
+    声音和动画在[插入资源]中设置
+    最后一个数据满足条件后播放(只播放一次)
+    `,
+  },
+  {
+    label: "NOTEXT",
+    detail: "不显示输出线数据",
+    documentation: `
+    输出线名称前带有NOTEXT字样时,不显示输出线数据
+    `,
+  },
+  {
+    label: "??MOVE?",
+    detail: "指标线向后偏移N个单位",
+    documentation: `
+    输出线名称中带有MOVE字段时,比如TMPMOVE3,表示整个输出线向后偏移3个单位,画线进入未来时间,N不应超过4
+    `,
+  },
+  {
+    label: "??MOVER?",
+    detail: "指标线向前偏移N个单位",
+    documentation: `
+    输出线名称中带有MOVE字段时,比如TMPMOVER3,表示整个输出线向前偏移3个单位
+    `,
   },
 ];
