@@ -4,11 +4,11 @@
  * ------------------------------------------------------------------------------------------ */
 import { keywords } from "./complete/keyword";
 
-let tmp = "";
-keywords.map(item=>{
-  tmp+=item.label+"|";
-});
-console.log(tmp);
+// let tmp = "";
+// keywords.map(item=>{
+//   tmp+=item.label+"|";
+// });
+// console.log(tmp);
 import {
   createConnection,
   TextDocuments,
@@ -170,7 +170,7 @@ async function validateTextDocument(textDocument: TextDocument): Promise<void> {
 
   // The validator creates diagnostics for all uppercase words length 2 and more
   const text = textDocument.getText();
-  const pattern =  /^(\d{18}|\d{15}|\d{17}x)$/g;
+  const pattern = /^(\d{18}|\d{15}|\d{17}x)$/g;
   // const pattern = /\b[A-Z]{2,}\b/g;
   let m: RegExpExecArray | null;
 
@@ -218,8 +218,17 @@ connection.onDidChangeWatchedFiles((_change) => {
 });
 
 connection.onHover((params: HoverParams): Promise<Hover> => {
+  // const { textDocument, position } = params;
+  // const doc = documents.get(textDocument.uri)!;
+  // console.log(position);
+  // const start = doc.positionAt(doc.offsetAt(position) - 5);
+  // const end = doc.positionAt(doc.offsetAt(position) + 5);
+  // const range = { start, end };
+  // // 获取当前光标所在的单词
+  // const word = doc.getText(range);
+  // console.log(word);
   return Promise.resolve({
-    contents: ["Hover Demo"],
+    contents: ["Hover测试"],
   });
 });
 
@@ -299,12 +308,15 @@ connection.onCompletion(
     //   documents.get(_textDocumentPosition.textDocument.uri)!.getText()
     // );
     return keywords.map((item) => {
+      const { label, detail, documentation, data } = item;
       return {
+        label,
         kind: CompletionItemKind.Function,
+        // filterText: detail,
+        detail,
+        // data,
+        documentation,
         preselect: true,
-        // filterText: item.detail,
-        filterText: item.label,
-        ...item,
       };
     });
   }

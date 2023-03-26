@@ -99,6 +99,24 @@
         }
       }
     ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "tdx-help-container",
+          "title": "通达信助手",
+          "icon": "./image/tdx.svg"
+        }
+      ]
+    },
+    "views": {
+      "tdx-help-container": [
+        {
+          "id": "tdx-help-view",
+          "name": "通达信助手",
+          "type": "webview"
+        }
+      ]
+    },
     "themes": [
       {
         "label": "通达信深色",

@@ -2,7 +2,9 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  * Licensed under the MIT License. See License.txt in the project root for license information.
  * ------------------------------------------------------------------------------------------ */
-const vscode = require("vscode");
+// const vscode = require("vscode");
+import * as vscode from 'vscode';
+import { TdxHelpWebview } from './tdxHelpWebview';
 import * as path from "path";
 import { workspace, ExtensionContext } from "vscode";
 
@@ -17,6 +19,16 @@ let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
   console.log('插件"tdx-indicator-formula"激活!');
+
+  // webview视图
+  const tdxHelpWebview = new TdxHelpWebview();
+
+  context.subscriptions.push(
+    vscode.window.registerWebviewViewProvider(
+      TdxHelpWebview.viewId,
+      tdxHelpWebview
+    )
+  );
   // The server is implemented in node
   const serverModule = context.asAbsolutePath(
     path.join("server", "out", "server.js")
