@@ -10,7 +10,7 @@
 
 ##  开始使用
 
-安装插件：[VisualStudio - Marketplace](https://marketplace.visualstudio.com/items?itemName=giscafer.leek-fund)，VSCode 最低版本要求：`^1.76.0`
+安装插件：[VisualStudio - Marketplace](https://marketplace.visualstudio.com/items?itemName=QuietlyChan.tdx-indicator-formula)，VSCode 最低版本要求：`^1.76.0`
 
 ## 插件介绍
 在本地新建后缀名为tdx的文件，即可使用插件的功能，如下图所示：
