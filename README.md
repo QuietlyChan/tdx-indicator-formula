@@ -1,65 +1,29 @@
-# tdx-indicator-formula README
+##  功能特性
 
-"tdx-indicator-formula". After writing up a brief description, we recommend including the following sections.
+本插件具有以下特点：
 
-## Features
+- 增加对tdx文件的支持
+- 基于最新的通达信客户端开发，收录了所有通达信的指标
+- 关键字高亮
+- 详尽的函数说明文档
+> 基于通达信金融终端V7.63，公式管理器V6.05开发
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+##  开始使用
 
-For example if there is an image subfolder under your extension project workspace:
+安装插件：[VisualStudio - Marketplace](https://marketplace.visualstudio.com/items?itemName=giscafer.leek-fund)，VSCode 最低版本要求：`^1.76.0`
 
-\!\[feature X\]\(images/feature-x.png\)
+## 插件介绍
+在本地新建后缀名为tdx的文件，即可使用插件的功能，如下图所示：
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+![](./screenshot/1.png)
 
-## Requirements
+##  开发计划
+- 增加侧边栏搜索页面，方便快捷查找指标和学习
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+## Changelog
 
-## Extension Settings
+[CHANGELOG](./CHANGELOG.md)
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+## License
 
-For example:
-
-This extension contributes the following settings:
-
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+[LICENSE](./LICENSE)

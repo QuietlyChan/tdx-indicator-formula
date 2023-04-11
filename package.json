@@ -4,24 +4,31 @@
   "description": "通达信指标公式插件,可以更高效的在vscode中编辑心仪指标",
   "repository": {
     "type": "git",
-    "url": "https://gitee.com/PurityChan/tdx-indicator-formula.git"
+    "url": "https://github.com/QuietlyChan/tdx-indicator-formula.git"
   },
+  "author": "QuietlyChan <quietlychan@foxmail.com>",
+  "version": "0.0.1",
+  "publisher": "QuietlyChan",
+  "license": "MIT",
   "keywords": [
     "tdx",
     "通达信",
     "指标公式",
     "量化交易",
-    "股票"
+    "股票",
+    "stock",
+    "fund",
+    "基金",
+    "同花顺"
   ],
-  "version": "0.0.1",
-  "publisher": "QuietlyChan",
   "engines": {
     "vscode": "^1.76.0"
   },
   "categories": [
     "Programming Languages",
     "Snippets",
-    "Formatters"
+    "Formatters",
+    "Other"
   ],
   "icon": "icon.png",
   "activationEvents": [],
@@ -82,8 +89,7 @@
       {
         "id": "tdx",
         "extensions": [
-          ".tdx",
-          ".txt"
+          ".tdx"
         ],
         "aliases": [
           "tdx",
@@ -134,6 +140,7 @@
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "pack": "vsce package",
+    "publish":"vsce publish",
     "compile": "tsc -b",
     "watch": "tsc -b -w",
     "lint": "eslint ./client/src ./server/src --ext .ts,.tsx",

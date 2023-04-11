@@ -18,7 +18,7 @@ import {
 let client: LanguageClient;
 
 export function activate(context: ExtensionContext) {
-  console.log('插件"tdx-indicator-formula"激活!');
+  console.log('恭喜你，通达信助手插件已激活!');
 
   // webview视图
   const tdxHelpWebview = new TdxHelpWebview();
